@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/DiplomBank/static/css/main.6b72b317.css",
+    "main.js": "/DiplomBank/static/js/main.0fade43c.js",
+    "static/media/Stress-amico.png": "/DiplomBank/static/media/Stress-amico.db6d0f4cd8c2ea1a7000.png",
+    "static/media/Image3.png": "/DiplomBank/static/media/Image3.d7c040ddfef4548d66ca.png",
+    "static/media/Image1.png": "/DiplomBank/static/media/Image1.53c850732f2b38c6e1c1.png",
+    "static/media/Main.png": "/DiplomBank/static/media/Main.09592a3b4b97316ecfc2.png",
+    "static/media/Main5.png": "/DiplomBank/static/media/Main5.ed1138e2cdc7b928b20b.png",
+    "static/media/Main4.png": "/DiplomBank/static/media/Main4.2de290ffbf64a84785d6.png",
+    "static/media/Main1.png": "/DiplomBank/static/media/Main1.d87af4a0aab12043069f.png",
+    "static/media/Image4.png": "/DiplomBank/static/media/Image4.e3d1902e1aafa0ec7634.png",
+    "static/media/Manage money-bro.png": "/DiplomBank/static/media/Manage money-bro.f0b0d65392bddde9bb90.png",
+    "static/media/Main3.png": "/DiplomBank/static/media/Main3.8053b1c5ad92893698ef.png",
+    "static/media/Image2.png": "/DiplomBank/static/media/Image2.ed6bb76cf0a85e87b6ed.png",
+    "static/media/Main2.png": "/DiplomBank/static/media/Main2.307789eec36defa15956.png",
+    "static/media/ErrorImage.png": "/DiplomBank/static/media/ErrorImage.66133261cf2230658314.png",
+    "static/media/PngMain.png": "/DiplomBank/static/media/PngMain.473a2d9a9f4ca6b17c5d.png",
+    "static/media/ImgOne.png": "/DiplomBank/static/media/ImgOne.393142db24e727653355.png",
+    "static/media/ImgFo.png": "/DiplomBank/static/media/ImgFo.0c220dbb651236048648.png",
+    "static/media/ImgTwo.png": "/DiplomBank/static/media/ImgTwo.d927a38a3dfb8e010c1b.png",
+    "static/media/ImgThree.png": "/DiplomBank/static/media/ImgThree.185515057c00f9c0e208.png",
+    "static/media/ImgFive.png": "/DiplomBank/static/media/ImgFive.2a94a5df4dd84fd0dc9e.png",
+    "index.html": "/DiplomBank/index.html",
+    "main.6b72b317.css.map": "/DiplomBank/static/css/main.6b72b317.css.map",
+    "main.0fade43c.js.map": "/DiplomBank/static/js/main.0fade43c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6b72b317.css",
+    "static/js/main.0fade43c.js"
+  ]
+}
