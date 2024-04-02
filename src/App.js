@@ -51,7 +51,7 @@ function App() {
 					<Route path='/strahovka/neschastie' element={<NeschastiePage />} />
 
 					<Route path='/credit/avto' element={<AvtoCreditPage />} />
-					<Route path='/credit/business' element={<CreditBusinessPage />} />
+					<Route path='/credit/business' element={<CreditBusinessPage />} />echo "# DiplomBank" >> README.md
 					<Route path='/credit/creditcart' element={<CreditCartPage />} />
 					<Route path='/credit/ipoteka' element={<IpotekaPage />} />
 					<Route path='/credit/lunieceli' element={<LubieCeliPage />} />
