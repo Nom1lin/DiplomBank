@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		font-family: 'Poppins', sans-serif;
+		background: #292C35;
+		min-height: 100vh;
+		
+	}
+}
+
+.menu {
+	opacity: 0;
+	transform: translateY(-10px);
+	visibility: hidden;
+	transition: 0.3s;
+}
+.menu.active {
+	opacity: 1;
+	transform: translateY(0);
+	visibility: visible;
+}
+
+.menu1 {
+	opacity: 0;
+	transform: translateY(-10px);
+	visibility: hidden;
+	transition: 0.3s;
+}
+.menu1.active {
+	opacity: 1;
+	transform: translateY(0);
+	visibility: visible;
+}
