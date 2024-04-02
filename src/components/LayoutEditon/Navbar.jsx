@@ -6,8 +6,6 @@ import Logo from '../../img/Logo.png'
 
 import PopUp from './PopUp'
 import AboutVas from './AboutVas'
-import ButtonOne from '../ButtonOne'
-
 
 export const Navbar = () => {
 	const isAuth = true; {/* Подриси профиля профиля */}

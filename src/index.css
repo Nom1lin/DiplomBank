@@ -34,3 +34,7 @@
 	transform: translateY(0);
 	visibility: visible;
 }
+
+[class*="copyrights-pane"] {
+	display: none !important;
+}

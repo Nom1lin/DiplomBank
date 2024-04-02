@@ -34,7 +34,7 @@ export const DohodPage = () => {
 
 			<div className="text-Melody text-[20px] mt-[100px]">
 				<span className="text-[32px]">Как открыть вклад</span>
-				<div className="bg-Tom w-[1180px] h-[99px] rounded-[40px] pl-[20px] mt-[50px] flex items-center ">Созвонитесь с нашим менеджером +7 978 504 65 69</div>
+				<div className="bg-Tom w-[1180px] h-[99px] rounded-[40px] pl-[20px] mt-[50px] flex items-center ">Созвонитесь с нашим менеджером +7 978 504-65-69</div>
 			</div>
 
 		</>

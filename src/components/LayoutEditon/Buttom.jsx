@@ -12,28 +12,28 @@ export const Buttom = () => {
 				<div className="w-100vh h-[490px] bg-Tom rounded-t-[40px] shadow-xxA pt-[30px] px-[425px] mt-[100px]">
 					<div className="flex justify-between">
 						<ul className="text-Melody"> {/* Первая группа */}
-							<li className='text-[26px] mb-[22px]'>
-								<NavLink to={'/karta'} >О банке</NavLink></li>
+							<li className='text-[26px] mb-[22px]'>О банке</li>
 							<li className='text-[16px] mb-[17px]'>
 								<NavLink to={'/karta'} >Офисы и банкоматы</NavLink></li>
 							<li className='text-[16px] mb-[17px]'>
-								<NavLink to={'/karta'}>Общая информация</NavLink></li>
+								<NavLink to={'/'}>Общая информация</NavLink></li>
 							<li className='text-[16px] mb-[17px]'>Руководство</li>
 							<li className='text-[16px] mb-[17px]'>Реквизиты</li>
-							{/* Не забудь */}	<li className='text-[16px]'>О разработчике</li>
+							<li className='text-[16px]'>
+								<NavLink to={'/aboutme'}>О разработчикея</NavLink></li>
 						</ul>
-						<ul className="text-Melody"> {/* Вторая группа (не забудь добавить иконки) */}
+						<ul className="text-Melody"> {/* Вторая группа*/}  
 							<li className='text-[26px] mb-[22px]'>Наши соц. сети</li>
-							<li className='flex mb-[17px] text-[16px]'><SlSocialVkontakte className='mr-2 mt-[1px]' size='20px' /><span>Вконтакте</span></li>
-							<li className='flex mb-[17px] text-[16px]'><FaTelegramPlane className='mr-2 mt-[1px]' size='20px' /><span>Телеграмм</span></li>
-							<li className='flex mb-[17px] text-[16px]'><FaOdnoklassniki className='mr-2 mt-[1px]' size='20px' /><span>Однокласники</span></li>
-							<li className='flex mb-[17px] text-[16px]'><FaInstagram className='mr-2 mt-[1px]' size='20px' /><span>Инстаграм</span></li>
-							<li className='flex text-[16px]'><FaFacebookF className='mr-2 mt-[1px]' size='20px' /><span>Фейсбук</span></li>
+							<li className='flex mb-[17px] text-[16px]'><SlSocialVkontakte className='mr-2 mt-[1px]' size='20px' /><a href='https://vk.com/stockholmskiy_66'>Вконтакте</a></li>
+							<li className='flex mb-[17px] text-[16px]'><FaTelegramPlane className='mr-2 mt-[1px]' size='20px' /><a href='https://web.telegram.org/#1200569226'>Телеграмм</a></li>
+							<li className='flex mb-[17px] text-[16px]'><FaOdnoklassniki className='mr-2 mt-[1px]' size='20px' /><a href='https://ok.ru/'>Однокласники</a></li>
+							<li className='flex mb-[17px] text-[16px]'><FaInstagram className='mr-2 mt-[1px]' size='20px' /><a href='https://instagram.com/'>Инстаграм</a></li>
+							<li className='flex text-[16px]'><FaFacebookF className='mr-2 mt-[1px]' size='20px' /><a href='https://facebook.com/'>Фейсбук</a></li>
 						</ul>
 						<ul className="text-Melody"> {/* Третья группа  */}
 							<li className='text-[26px] mb-[22px]'>Онлайн сервисы</li>
-							<li className='text-[16px] mb-[17px]'>Написать в банк</li>
-							<li className='text-[16px] mb-[17px]'>Заявки и калькулятор</li>
+							<li className='text-[16px] mb-[17px]'><NavLink  to={'/questions'} >Написать в банк</NavLink></li>
+							<li className='text-[16px] mb-[17px]'>Заявки и калькулятор</li> 
 							<li className=''>Мошеничество</li>
 						</ul>
 					</div>

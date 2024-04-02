@@ -7,6 +7,7 @@ import { LoginPage } from './Pages/LoginPage'
 import { KartaPage } from './Pages/KartaPage'
 import { ErrorPage } from './Pages/ErrorPage'
 import { AboutMePage } from './Pages/AboutMePage'
+import { QuestionsPage } from './Pages/QuestionsPage'
 
 import { DohodPage } from './Pages/Vkalad/DohodPage'
 import { MaxPage } from './Pages/Vkalad/MaxPage'
@@ -40,6 +41,7 @@ function App() {
 					<Route path='/login' element={<LoginPage />} />
 					<Route path='/*' element={<ErrorPage />} />
 					<Route path='/aboutme' element={<AboutMePage />} />
+					<Route path='/questions' element={<QuestionsPage />} />
 
 					<Route path='/vkkad/dohod' element={<DohodPage />} />
 					<Route path='/vkkad/max' element={<MaxPage />} />

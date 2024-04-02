@@ -20,7 +20,7 @@ const PopUp = (props) => {
 				<li className={`text-[16px] ${props.style} ${props.style3}  text-Melody`}><NavLink to={props.silki[3]}>{props.body[3]}</NavLink></li>
 				<li className={`text-[16px] ${props.style} text-Melody`}><NavLink to={props.silki[4]}>{props.body[4]}</NavLink></li>
 				<li className={`text-[16px] text-Melody`}><NavLink to={props.silki[5]}>{props.body[5]}</NavLink></li>
-				<li className='text-[9px] pt-[10px] text-[#007CC1]'><NavLink to={'/error'}>Часто задаваемые вопросы по кредитам?</NavLink></li>
+				<li className='text-[9px] pt-[10px] text-[#007CC1]'><NavLink to={'/questions'}>Часто задаваемые вопросы по кредитам?</NavLink></li>
 			</ul>
 		</li>
 	)

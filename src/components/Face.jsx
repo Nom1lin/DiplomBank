@@ -23,7 +23,7 @@ const Face = (props) => {
 				<img src={props.img} alt="картинки нет" className=' mt-[32px] w-[680px] h-[680px]' />
 			</div>
 			<div className="flex items-center">
-				<ButtonOne text={props.button} color='bg-Kuromi' mr='mr-[50px]' silki='/login' />
+				<ButtonOne text={props.button} opacity1={props.opacity1} color='bg-Kuromi' mr='mr-[50px]' silki='/login' />
 				<ButtonTwo text='Зарегистрироваться' opacity={props.opacity} color='bg-Melody' colortxt='text-Jerry' silki='/register' />
 			</div>
 		</>
