@@ -24,17 +24,16 @@ export const AvtoCreditPage = () => {
 				button='Войти'
 			/>
 			<div className="bg-Melody p-[1px] mt-[120px] mb-[50px]" /> {/* Разделяющая линия */}
-			<Raschet maintext='Рассчитайте автокредит'
+
+			<Raschet maintext='Рассчитайте свой автокредит'
 				inputtext1='Желаемая сумма'
 				inputtext2='Срок кредита'
-				inputminitext1='от 140 000 до 7 000 000 рублей'
-				inputminitext2='от 1 до 7 лет'
-				Chislotext1='99 999 ₽'
+				inputmin1='140000' inputmin2='12'
+				inputmax1='7000000' inputmax2='73'
 				Chislotext2='15.6 %'
-				Chislotext3='1 099 999 ₽'
 				Chislominitext1='Ежемесячный платеж'
 				Chislominitext2='Ставка по кредиту'
-				Chislominitext3='Общая сумма выплат'
+				Chislominitext3='Общая сумма выплат' stavka='0.156'
 			/>
 
 			<div className="mt-[100px] flex justify-between"> {/* Раздел преимущества */}

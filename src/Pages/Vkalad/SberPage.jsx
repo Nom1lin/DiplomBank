@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Face from '../../components/Face'
-import Raschet from '../../components/Reschet'
+import RaschetTwo from '../../components/ReschetTwo'
 
 import Main from '../../img/Vklad/Main4.png'
 
@@ -19,17 +19,16 @@ export const SberPage = () => {
 				button='Войти'
 			/>
 			<div className="bg-Melody p-[1px] mt-[120px] mb-[50px]" /> {/* Разделяющая линия */}
-			<Raschet maintext='Рассчитайте ваш вклад'
+
+			<RaschetTwo maintext='Рассчитайте ваш вклад'
 				inputtext1='Сумма вклада'
 				inputtext2='Срок вклада'
-				inputminitext1='от 10 до 500 тысяч рублей'
-				inputminitext2='от 5 до 25 месяцев'
-				Chislotext1='561 999 ₽'
+				inputmin1='10000' inputmin2='5'
+				inputmax1='500000' inputmax2='25'
 				Chislotext2='14.4 %'
-				Chislotext3='61 999 ₽'
 				Chislominitext1='Сумма в конце вклада'
 				Chislominitext2='Ставка'
-				Chislominitext3='Доход'
+				Chislominitext3='Доход' stavka='14.40'
 			/>
 
 			<div className="text-Melody text-[20px] mt-[100px]">

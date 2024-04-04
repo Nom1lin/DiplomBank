@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Face from '../../components/Face'
-import Raschet from '../../components/Reschet'
+import RaschetTwo from '../../components/ReschetTwo'
 
 import Main from '../../img/Vklad/Main1.png'
 
@@ -19,17 +19,16 @@ export const DohodPage = () => {
 				button='Войти'
 			/>
 			<div className="bg-Melody p-[1px] mt-[120px] mb-[50px]" /> {/* Разделяющая линия */}
-			<Raschet maintext='Рассчитайте ваш вклад'
+
+			<RaschetTwo maintext='Рассчитайте ваш вклад'
 				inputtext1='Сумма вклада'
 				inputtext2='Срок вклада'
-				inputminitext1='от 10 до 500 тысяч рублей'
-				inputminitext2='от 1 до 50 месяцев'
-				Chislotext1='552 999 ₽'
+				inputmin1='10000' inputmin2='1'
+				inputmax1='500000' inputmax2='50'
 				Chislotext2='10.8 %'
-				Chislotext3='552 999 ₽'
 				Chislominitext1='Сумма в конце вклада'
 				Chislominitext2='Ставка'
-				Chislominitext3='Доход'
+				Chislominitext3='Доход' stavka='10.80'
 			/>
 
 			<div className="text-Melody text-[20px] mt-[100px]">

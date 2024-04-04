@@ -1,14 +1,11 @@
 import React from 'react'
 
 import Face from '../../components/Face'
-import RaschetTwo from '../../components/ReschetTwo'
+import Raschet from '../../components/Reschet'
 import Gaid from '../../components/Gaid'
 import Zaiavki from '../../components/Zaiavki'
 
-
 import Main from '../../img/5Credit/Main.png'
-
-import Ramki from '../../components/Ramki'
 
 export const IpotekaPage = () => {
 	return (
@@ -23,39 +20,17 @@ export const IpotekaPage = () => {
 				button='Войти'
 			/>
 			<div className="bg-Melody p-[1px] mt-[120px] mb-[50px] " /> {/* Разделяющая линия */}
-			<h1 className='text-[32px] mb-[60px] text-Melody'>Рассчитайте свою ипотеку</h1>
-			<div className="flex text-Melody">
-				<ul className='w-580px'> {/* Раздел инпута */}
-					<div className='mb-[51px] mr-[120px]'> {/* Инпут 1*/}
-						<li className='text-[20px] mb-[13px]'>Регион покупки недвижимости</li>
-						<li><input className='w-[580px] h-[87px] bg-Tom shadow-xxA rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
-					</div>
-					<div className='mb-[33px] mr-[120px]'> {/* Инпут 2*/}
-						<li className='text-[20px] mb-[13px]'>Стоимость недвижимости</li>
-						<li><input className='w-[580px] h-[87px] bg-Tom shadow-xxA rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
-						<li className='text-[13px] mt-[5px] text-Melody/70'>от 600 000 до 100 000 000 рублей</li>
-					</div>
-					<div className='mb-[33px] mr-[120px]'> {/* Инпут 3*/}
-						<li className='text-[20px] mb-[13px]'>Первоначальный взнос</li>
-						<li><input className='w-[580px] h-[87px] bg-Tom shadow-xxA rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
-						<li className='text-[13px] mt-[5px] text-Melody/70'>от 500 000 до 25 000 000  рублей </li>
-					</div>
-					<div className='mr-[120px]'> {/* Инпут 4*/}
-						<li className='text-[20px] mb-[13px]'>Срок кредита</li>
-						<li><input className='w-[580px] h-[87px] bg-Tom shadow-xxA rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
-						<li className='text-[13px] mt-[5px] text-Melody/70'>от 1 до 12 лет</li>
-					</div>
-				</ul>
-				<RaschetTwo Chislotext1='99 999 ₽'
-					Chislotext2='15.6 %'
-					Chislotext3='1 099 999 ₽'
-					Chislotext4='16 999 ₽'
-					Chislominitext1='Ежемесячный платеж'
-					Chislominitext2='Ставка по кредиту'
-					Chislominitext3='Общая сумма выплат'
-					Chislominitext4='Разовая оплата после обучения'
-				/>
-			</div>
+
+			<Raschet maintext='Рассчитайте ипотеку'
+				inputtext1='Желаемая сумма'
+				inputtext2='Срок кредита'
+				inputmin1='600000' inputmin2='12'
+				inputmax1='10000000' inputmax2='146'
+				Chislotext2='12 %'
+				Chislominitext1='Ежемесячный платеж'
+				Chislominitext2='Ставка по кредиту'
+				Chislominitext3='Общая сумма выплат' stavka='0.12'
+			/>
 
 
 			<Gaid maintext='Как получить ипотеку'

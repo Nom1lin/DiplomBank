@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 import Face from '../../components/Face'
 import Raschet from '../../components/Reschet'
 import Gaid from '../../components/Gaid'
 import Zaiavki from '../../components/Zaiavki'
+import Chernivik from '../../components/Chernivik'
 
 import Main from '../../img/1Credit/Main.png'
 import Image1 from '../../img/1Credit/Image1.png'
@@ -12,6 +13,13 @@ import Image2 from '../../img/1Credit/Image2.png'
 import Ramki from '../../components/Ramki'
 
 export const LubieCeliPage = () => {
+	const [value1, setValue1] = useState(0);
+	const [value2, setValue2] = useState(0);
+
+	const handleInputChange = (e, setValue) => {
+		setValue(Number(e.target.value));
+	}
+
 	return (
 		<>
 			<Face main='Оформите кредит наличными или безналичными на любые цели'
@@ -27,14 +35,12 @@ export const LubieCeliPage = () => {
 			<Raschet maintext='Рассчитайте кредит наличными и получите деньги сегодня'
 				inputtext1='Желаемая сумма'
 				inputtext2='Срок кредита'
-				inputminitext1='от 30 000 до 6 000 000 рублей'
-				inputminitext2='от 2 до 73 месяцев'
-				Chislotext1='99 999 ₽'
+				inputmin1='30000'      inputmin2='2'
+				inputmax1='6000000'   inputmax2='33'
 				Chislotext2='15.6 %'
-				Chislotext3='1 099 999 ₽'
 				Chislominitext1='Ежемесячный платеж'
 				Chislominitext2='Ставка по кредиту'
-				Chislominitext3='Общая сумма выплат'
+				Chislominitext3='Общая сумма выплат' stavka='0.156'
 			/>
 
 			<div className="mt-[100px] flex justify-between"> {/* Раздел преимущества */}
@@ -63,6 +69,7 @@ export const LubieCeliPage = () => {
 				miniPravila11='от 30 000 до 6 000 000 рублей' miniPravila21='от 2 до 73 месяцев'
 				miniPravila12='Заглушка' miniPravila22='Заглушка'
 			/>
+
 		</>
 	)
 }
