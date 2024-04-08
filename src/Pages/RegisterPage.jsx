@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
-import { registerUser } from '../redux/features/auth/authSlice'
-
-
-import ButtonOne from '../components/ButtonOne'
+import { registerUser, checkIsAuth } from '../redux/features/auth/authSlice'
 
 export const RegisterPage = () => {
 	const [username, setUsername] = useState('')
@@ -15,13 +12,16 @@ export const RegisterPage = () => {
 	const [Inn, setInn] = useState('')
 	const [Kpp, setKpp] = useState('')
 	const { status } = useSelector(state => state.auth)
+	const isAuth = useSelector(checkIsAuth)
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		if (status) {
 			toast(status)
 		}
-	}, [status])
+		if (isAuth) navigate('/')
+	}, [status, isAuth, navigate])
 
 	const handleSubmit = () => {
 		try {

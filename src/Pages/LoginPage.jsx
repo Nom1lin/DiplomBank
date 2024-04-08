@@ -1,22 +1,20 @@
 import React, { useState, useEffect} from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { loginUser } from '../redux/features/auth/authSlice'
+import { loginUser, checkIsAuth } from '../redux/features/auth/authSlice'
 import { toast } from 'react-toastify'
-
-import ButtonOne from '../components/ButtonOne'
 
 export const LoginPage = () => {
 	const [username, setUsername] = useState('')
 	const [password, setPassword] = useState('')
 	const {status} = useSelector(state => state.auth)
+	const isAuth = useSelector(checkIsAuth)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 
 	useEffect(() => {
-		if (status) {
-			toast(status)
-		}
+		if (status) toast(status)
+		if (isAuth) navigate('/')
 	}, [status])
 
 	const handleSubmit = () => {

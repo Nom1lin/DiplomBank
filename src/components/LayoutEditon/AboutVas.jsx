@@ -7,19 +7,30 @@ import { MdOutlineIncompleteCircle } from "react-icons/md";
 import { BsFillTelephoneFill, BsListTask } from "react-icons/bs";
 
 import Ramki from '../Ramki'
-
 import Nalogi from '../../img/Manage money-bro.png'
 import JKH from '../../img/Stress-amico.png'
+
+import { useDispatch } from 'react-redux'
+import { logout } from '../../redux/features/auth/authSlice'
+import { toast } from 'react-toastify'
+
 
 const AboutVas = () => {
 	const [isOpen, setOpen] = useState(false)  //создал переменую и функцию для реализации открытия и закрытия списка 
 	const [is2Open, set2Open] = useState(false)  //создал переменую и функцию для реализации открытия и закрытия списка 
 	const menuRef = useRef(null) // создал переменую для реализации закрытия списка по клику вне области
+	const dispatch = useDispatch()
+
 	useClickOutside(menuRef, () => { //  функция для реализации закрытия списка по клику вне области
 		if (isOpen) setTimeout(() => setOpen(false), 50)
 		if (is2Open) setTimeout(() => set2Open(false), 50)
-
 	})
+	const logoutHandler = () => {
+		dispatch(logout())
+		window.localStorage.removeItem('token')
+		toast('Вы вышли из системы')
+	}
+
 
 	return (
 		<div> {/* About VAS */}
@@ -94,7 +105,7 @@ const AboutVas = () => {
 					<Ramki text='Оплата ЖКХ' img={Nalogi} w='w-[320px]' h='h-[246px]' wi='w-[167px]' hi='h-[167px]' px='px-[76px]' pt='pt-[16px]' />
 					<Ramki text='Налоги и штрафы' img={JKH} w='w-[320px]' h='h-[246px]' wi='w-[167px]' hi='h-[167px]' px='px-[76px]' pt='pt-[16px]' />
 				</div>
-				<div className='w-[705px] h-[53px] bg-[#ED7D7D] rounded-b-[20px] ml-[-23px] mt-[10px] flex justify-center items-center text-[24px] text-Tom'><span>Выйти</span></div>
+				<button onClick={logoutHandler} className='w-[705px] h-[53px] bg-[#ED7D7D] rounded-b-[20px] ml-[-23px] mt-[10px] flex justify-center items-center text-[24px] text-Tom'>Выйти</button>
 			</div>
 		</div>
 	)
