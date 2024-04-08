@@ -8,7 +8,7 @@ import PopUp from './PopUp'
 import AboutVas from './AboutVas'
 
 export const Navbar = () => {
-	const isAuth = true; {/* Подриси профиля профиля */}
+	const isAuth = false; {/* Подриси профиля профиля */}
 	const [isOpen, setOpen] = useState(false)  //создал переменую и функцию для реализации открытия и закрытия списка 
 	const menuRef = useRef(null) // создал переменую для реализации закрытия списка по клику вне области
 	useClickOutside(menuRef, () => { //  функция для реализации закрытия списка по клику вне области

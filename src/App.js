@@ -29,6 +29,9 @@ import { DebetovCartPage } from './Pages/Carts/DebetovCartPage'
 import { DebetovZolotoCartPage } from './Pages/Carts/DebetovZolotoCartPage'
 import { VirtualitiCartPage } from './Pages/Carts/VirtualitiCartPage'
 
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 
 function App() {
 	return (
@@ -53,7 +56,7 @@ function App() {
 					<Route path='/strahovka/neschastie' element={<NeschastiePage />} />
 
 					<Route path='/credit/avto' element={<AvtoCreditPage />} />
-					<Route path='/credit/business' element={<CreditBusinessPage />} />echo "# DiplomBank" >> README.md
+					<Route path='/credit/business' element={<CreditBusinessPage />} />
 					<Route path='/credit/creditcart' element={<CreditCartPage />} />
 					<Route path='/credit/ipoteka' element={<IpotekaPage />} />
 					<Route path='/credit/lunieceli' element={<LubieCeliPage />} />
@@ -64,6 +67,8 @@ function App() {
 					<Route path='/carts/virtualiticart' element={<VirtualitiCartPage />} />
 
 				</Routes>
+
+				<ToastContainer position='bottom-right'/>
 			</Layout>
 		</>
 	)
