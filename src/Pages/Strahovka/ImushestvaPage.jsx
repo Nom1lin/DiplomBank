@@ -2,7 +2,7 @@ import React from 'react'
 
 import Face from '../../components/Face'
 import Gaid from '../../components/Gaid'
-import Zaiavki from '../../components/Zaiavki'
+import ZaiavkiTwo from '../../components/ZaiavkiTwo'
 
 import Main from '../../img/1Credit/Main.png'
 
@@ -66,18 +66,12 @@ export const ImushestvaPage = () => {
 				text03='Получите смс, подтверждающее страховку'
 			/> {/* Раздел Как получить кредит */}
 
-			<Zaiavki maintext='Онлайн заявка на страхование'
-				t11='text-[0px]' t21='text-[0px]'
-				t12='text-[0px]' t22='text-[0px]'
-				mb11='mb-[56px]' mb21='mb-[56px]'
-				mb12='mb-[56px]' mb22='mb-[56px]'
-				inputopacity=' mb-[-120px] opacity-0' inputopacityPlan2=' mb-[0] opacity-0'
+			<ZaiavkiTwo maintext='Онлайн заявка на страхование'
 				input11='Тариф страхования' input21='Название страхуемого'
 				input12='ФИО' input22='Паспортные данные'
 				input13='Дата рождения' input23='СНИЛС И ИНН'
 				input14='Мобильный телефон' input24='Электронная почта'
 				miniPravila11='от 30 000 до 6 000 000 рублей' miniPravila21='Заглушка'
-				miniPravila12='Заглушка' miniPravila22='Заглушка'
 			/>
 		</>
 	)

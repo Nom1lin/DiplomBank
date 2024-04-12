@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react'
 import { useDispatch } from 'react-redux';
-import { createVklad } from '../../redux/features/vklad/vkladSlice'
 import { useClickOutside } from '../../hooks/useClickOutside'
 import { NavLink } from 'react-router-dom'
+
+import { createVklad } from '../../redux/features/vklad/vkladSlice'
+import { createCart } from '../../redux/features/cart/cartSlice'
 
 import Face from '../../components/Face'
 import Gaid from '../../components/Gaid'
@@ -14,38 +16,55 @@ export const AdminCartAndVkladPage = () => {
 	const [isOpen, setOpen] = useState(false)  //создал переменую и функцию для реализации открытия и закрытия списка 
 	const [is2Open, set2Open] = useState(false)  //создал переменую и функцию для реализации открытия и закрытия списка 
 	const menuRef = useRef(null) // создал переменую для реализации закрытия списка по клику вне области
+	const group1 = Math.floor(Math.random() * 10000);
+	const group2 = Math.floor(Math.random() * 10000);
+	const group3 = Math.floor(Math.random() * 10000);
+	const group4 = Math.floor(Math.random() * 10000);
 
-	const [client, setClient] = useState(''); // Сумма займа
-	const [vid, setVid] = useState(''); // Сумма займа
-	const [summa, setSumma] = useState(1000); // Сумма займа
-	const [srock, setSrock] = useState(5); // Срок вклад
+	const [client, setClient] = useState('');                 const [clientCart, setClientCart] = useState('');
+	const [vid, setVid] = useState('');                       const [vidCart, setVidCart] = useState('');
+	const [summa, setSumma] = useState(1000);                 const number = `${group1} ${group2} ${group3} ${group4}`;
+	const [srock, setSrock] = useState(5);                    const [balans, setBalans] = useState('0');
 	const [stavka, setStavka] = useState(null); // Процентная ставка вклада
 	const finalsumma = Math.round(summa * (stavka / 100) / 365 * 30) // Прибыль за один месяц
 	const dispatch = useDispatch();
 
 	const handleDepositChange = (event) => {
 		const selectedValue = event.target.value;
-  setVid(selectedValue);
+		setVid(selectedValue);
+		// Объект соответствий видов вкладов и ставок
+		const stavkaMap = {
+			'Доходный': 10.8,
+			'Минимальный': 8.8,
+			'Максимальный': 15.6,
+			'Сберегательный': 14.4,
+			'Универсальный': 12,
+		};
+		const selectedStavka = stavkaMap[selectedValue];
+		setStavka(selectedStavka);
+	}
 
-  // Объект соответствий видов вкладов и ставок
-  const stavkaMap = {
-    'Доходный': 10.8,
-    'Минимальный': 8.8,
-    'Максимальный': 15.6,
-    'Сберегательный': 14.4,
-    'Универсальный': 12,
-  };
-	const selectedStavka = stavkaMap[selectedValue];
-  setStavka(selectedStavka);
-}
+	const handleCartChange = (event) => {
+		const selectedValue = event.target.value;
+		setVidCart(selectedValue);
+	}
 
 	const handleCreateVklad = () => {
 		try {
 			dispatch(createVklad({ client, vid, summa, srock, stavka, finalsumma }));
 			// Очищаем поля после создания вклада
-			setClient('');    setVid('');
-			setSumma('');    setSrock('');
-			setStavka(''); 
+			setClient(''); setVid('');
+			setSumma(''); setSrock('');
+			setStavka('');
+		} catch (error) { console.log(error) }
+	};
+
+	const handleCreateCart = () => {
+		try {
+			dispatch(createCart({ clientCart, vidCart, number, balans }));
+			// Очищаем поля после создания вклада
+			setClientCart(''); setVidCart('');
+		  setBalans('');
 		} catch (error) { console.log(error) }
 	};
 
@@ -82,17 +101,25 @@ export const AdminCartAndVkladPage = () => {
 					<div className='mt-[75px] w-[680px] bg-Tom rounded-[40px] shadow-xxA p-[56px] text-Melody'>
 						<li>
 							<h1 className='text-[20px] ml-[30px] mb-[5px]'>Введите логин клиента</h1>
-							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" />  {/*  ///  value={fio} onChange={(e) => setFio(e.target.value)} */}
+							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" 
+							value={clientCart} onChange={(e) => setClientCart(e.target.value)} />
 						</li>
 						<li>
-							<h1 className='text-[20px] ml-[30px] mb-[5px]'>Введите вид карты</h1>
-							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" />  {/*  ///  value={fio} onChange={(e) => setFio(e.target.value)} */}
+							<h1 className='text-[20px] ml-[30px] mb-[5px] mt-[20px]'>Введите вид карты</h1>
+							<select className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' value={vidCart} onChange={handleCartChange}>
+								<option value="Кредитная">Кредитная карта</option>
+								<option value="Дебетовая">Дебетовая карта</option>
+								<option value="Дебетовая 'Золото'">Дебетовая карта "Золото"</option>
+								<option value="Виртуальная">Виртуальная карта</option>
+							</select>
 						</li>
-						<li>
-							<h1 className='text-[20px] ml-[30px] mb-[5px]'>Если "Крелитная карта", то кредитный баланс</h1>
-							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" />  {/*  ///  value={fio} onChange={(e) => setFio(e.target.value)} */}
+						<li> 
+							<h1 className='text-[20px] ml-[30px] mb-[5px] mt-[20px]'>Если "Крелитная карта", то кредитный баланс</h1>
+							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							value={balans} onChange={(e) => setBalans(e.target.value)} />  
 						</li>
-
+						<button type='submit' className={`mt-[30px] w-[258px] h-[82px] bg-Melody shadow-xxB rounded-[40px] text-Jerry flex justify-center items-center text-[24px]`}
+						onClick={handleCreateCart} >Отправить</button>
 					</div>
 				</ul>
 
@@ -106,7 +133,8 @@ export const AdminCartAndVkladPage = () => {
 					<div className='mt-[75px] w-[680px] bg-Tom rounded-[40px] shadow-xxA p-[56px] text-Melody'>
 						<li>
 							<h1 className='text-[20px] ml-[30px] mb-[5px]'>Введите логин клиента</h1>
-							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" value={client} onChange={(e) => setClient(e.target.value)} />
+							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" 
+							value={client} onChange={(e) => setClient(e.target.value)} />
 						</li>
 						<li>
 							<h1 className='text-[20px] ml-[30px] mb-[5px] mt-[20px]'>Введите вид вклада</h1>
@@ -120,11 +148,13 @@ export const AdminCartAndVkladPage = () => {
 						</li>
 						<li>
 							<h1 className='text-[20px] ml-[30px] mb-[5px] mt-[20px]'>Введите сумму вклада</h1>
-							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="Number" value={summa} onChange={(e) => setSumma(e.target.value)} />
+							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="Number" 
+							value={summa} onChange={(e) => setSumma(e.target.value)} />
 						</li>
 						<li>
 							<h1 className='text-[20px] ml-[30px] mb-[5px] mt-[20px]'>Введите срок вклада</h1>
-							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="Number" value={srock} onChange={(e) => setSrock(e.target.value)} />
+							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="Number"
+							 value={srock} onChange={(e) => setSrock(e.target.value)} />
 						</li>
 						<li>
 							<h1 className='text-[20px] ml-[30px] mb-[5px] mt-[20px]'>Введите ставку вклада</h1>
@@ -134,7 +164,8 @@ export const AdminCartAndVkladPage = () => {
 							<h1 className='text-[20px] ml-[30px] mb-[5px] mt-[20px]'>Финальная сумма вклада составляет:</h1>
 							<div className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px] pt-[15px]' >{parseInt(summa) + (finalsumma * srock)}</div>
 						</li>
-						<button type='submit' className={`mt-[30px] w-[258px] h-[82px] bg-Melody shadow-xxB rounded-[40px] text-Jerry flex justify-center items-center text-[24px] `} onClick={handleCreateVklad} >Отправить</button>
+						<button type='submit' className={`mt-[30px] w-[258px] h-[82px] bg-Melody shadow-xxB rounded-[40px] text-Jerry flex justify-center items-center text-[24px]`}
+						onClick={handleCreateVklad} >Отправить</button>
 					</div>
 				</ul>
 			</div>
