@@ -1,81 +1,130 @@
-import React from 'react'
-import ButtonOne from './ButtonOne'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { createCredid } from '../redux/features/credits/creditSlice'
+
+import { toast } from 'react-toastify'
 
 const Zaiavki = (props) => {
+	const [value11, setValue11] = useState(''); const [value21, setValue21] = useState('');
+	const [value12, setValue12] = useState(''); const [value22, setValue22] = useState('');
+	const [value13, setValue13] = useState(''); const [value23, setValue23] = useState('');
+	const [value14, setValue14] = useState(''); const [value24, setValue24] = useState('');
+	const [value15, setValue15] = useState(props.celi); const [value25, setValue25] = useState(props.srok);
+	const DateTime = new Date();
+	const vid = props.vid; 
+	const dispatch = useDispatch()
+
+	const submitHandler = () => {
+    try {
+        if (
+            vid.trim() === '' || value11.trim() === '' || value21.trim() === '' || value12.trim() === '' || value22.trim() === '' || value13.trim() === '' || value23.trim() === '' || value14.trim() === '' || value24.trim() === '' || value15.trim() === '' || value25.trim() === '' || !DateTime
+        ) {
+            toast('Вы не ввели одно из значений');
+        } else {
+            dispatch(
+                createCredid({
+                    vid, value11, value21, value12, value22, value13, value23, value14, value24, value15, value25, DateTime,
+                })
+            );
+            // Очищаем поля после создания вклада
+            setValue11(''); setValue21(''); setValue12(''); setValue22(''); setValue13(''); setValue23(''); setValue14(''); setValue24(''); setValue15(''); setValue25('');
+            toast('Ваша заявка на рассмотрении');
+        }
+    } catch (error) {
+        console.log(error);
+        toast('Вы ввели что-то не то');
+    }
+}
+
+
 	return (
-		<div className="mt-[100px] text-Melody">
+		<form className="mt-[100px] text-Melody" onSubmit={(e) => e.preventDefault()}>
 			<span className="text-[48px]">{props.maintext}</span>
 			<div className="mt-[45px] w-[1180px] bg-Tom rounded-[40px] p-[56px] shadow-xxA">
 				<div className="flex justify-between">
 					<ul className=' '>
-						<div className={props.mb11}> {/* Инпут 1*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
-							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input11}</li>
-							<li className={`${props.t11} mt-[75px] ml-[30px] text-Melody/70`}>{props.miniPravila11}</li>
+
+						<div className='mb-[29px] mt-[-13px]'> {/* Инпут 1*/}  {/*--- Сумма займа */}
+							<li className='text-[20px] mb-[12px]'>{props.inputtext1}</li>
+							<div className="w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px] pt-[]"><li className='text-[20px] mb-[8px]'>{props.input11}</li>{value11} рублей</div>
+							<li className='mt-[-12px] pl-[30px]'><input className='w-[440px] accent-Melody' type="range" min={props.inputmin1} max={props.inputmax1} step='10000' value={value11} onChange={(e) => setValue11(e.target.value)} /></li>
+							<li className='text-[13px] mt-[-6px] text-Melody/70 flex justify-between'>
+								<h1>{props.inputmin1} рублей</h1>
+								<h1>{props.inputmax1} рублей</h1>
+							</li>
 						</div>
-						<div className={props.mb12}> {/* Инпут 2*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
+						<div className='mb-[130px]'> {/* Инпут 2*/}
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+								value={value12} onChange={(e) => setValue12(e.target.value)}
+							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input12}</li>
-							<li className={`${props.t12} mt-[75px] ml-[30px] text-Melody/70`}>{props.miniPravila12}</li>
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 3*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+								value={value13} onChange={(e) => setValue13(e.target.value)}
+							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input13}</li>
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 4*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+								value={value14} onChange={(e) => setValue14(e.target.value)}
+							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input14}</li>
 						</div>
 						<div className={props.inputopacityPlan2}> {/* Инпут 5*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+								value={value15} onChange={(e) => setValue15(e.target.value)}
+							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input15}</li>
-						</div>
-						<div className={props.inputopacity}> {/* Инпут 6*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
-							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input16}</li>
 						</div>
 					</ul>
 
 					<ul className=''>
-						<div className={props.mb21}> {/* Инпут 1*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
-							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input21}</li>
-							<li className={`${props.t21} mt-[75px] ml-[30px] text-Melody/70`}>{props.miniPravila21}</li>
+						<div className='mb-[29px] mt-[-13px]'> {/* Инпут 1*/}  {/*--- Сумма займа */}
+							<li className='text-[20px] mb-[12px]'>{props.inputtext1}</li>
+							<div className="w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px] pt-[]"><li className='text-[20px] mb-[8px]'>{props.input21}</li>{value21} месяцев</div>
+							<li className='mt-[-12px] pl-[30px]'><input className='w-[440px] accent-Melody' type="range" min={props.inputmin2} max={props.inputmax2} step='1' value={value21} onChange={(e) => setValue21(e.target.value)} /></li>
+							<li className='text-[13px] mt-[-6px] text-Melody/70 flex justify-between'>
+								<h1>{props.inputmin2} месяцев</h1>
+								<h1>{props.inputmax2} месяцев</h1>
+							</li>
 						</div>
-						<div className={props.mb22}> {/* Инпут 2*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
+						<div className='mb-[130px]'> {/* Инпут 2*/}
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+								value={value22} onChange={(e) => setValue22(e.target.value)}
+							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input22}</li>
-							<li className={`${props.t22} mt-[75px] ml-[30px] text-Melody/70`}>{props.miniPravila22}</li>
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 3*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+								value={value23} onChange={(e) => setValue23(e.target.value)}
+							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input23}</li>
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 4*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+								value={value24} onChange={(e) => setValue24(e.target.value)}
+							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input24}</li>
 						</div>
 						<div className={props.inputopacityPlan2}> {/* Инпут 5*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" /></li>
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+								value={value25} onChange={(e) => setValue25(e.target.value)}
+							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input25}</li>
 						</div>
 					</ul>
 				</div>
-
-				<div className="flex text-[13px] mb-[33px]">
-					<input className="mr-[5px] w-[20px] h-[20px] bg-Tom " type="checkbox" />
-					<h1 className="mr-[5px]">я принимаю </h1>
-					<h1 className="text-[#00C2FF]"> условия обработки и передачи персональльных данных</h1>
-				</div>
-				<ButtonOne color='bg-Melody' silki='/carts/debetovcart' text='Отправить' />
+				<button type='submit' onClick={submitHandler} className={`w-[258px] h-[82px] bg-Melody shadow-xxB rounded-[40px] text-Jerry flex justify-center items-center text-[24px] `}>Отправить</button>
 
 			</div>
-		</div>
+		</form >
 	)
 }
 
 Zaiavki.defaultProps = { inputopacity: 'opacity-0' }
-Zaiavki.defaultProps = { t0: 'text-[0px]' }
-Zaiavki.defaultProps = { t13: 'text-[13px]' }
+
+Zaiavki.defaultProps = { srok: '' }
+Zaiavki.defaultProps = { celi: '' }
 
 export default Zaiavki

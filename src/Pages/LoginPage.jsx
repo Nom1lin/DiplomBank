@@ -27,7 +27,7 @@ export const LoginPage = () => {
 	return (
 		< >
 			<div className='flex justify-center mt-[30px] text-Melody'>
-				<form className='w-[980px] h-[795px] bg-Tom rounded-[40px] shadow-xxA  flex justify-center' onSubmit={(e) => e.preventDefault}>
+				<form className='w-[1100px] h-[795px] bg-Tom rounded-[40px] shadow-xxA  flex justify-center' onSubmit={(e) => e.preventDefault}>
 					<ul className='mt-[66px]'>
 						<li className='text-[48px] ml-[94px]'>Авторизация</li>
 						<li className=''> {/* Инпут 1*/}

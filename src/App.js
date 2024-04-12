@@ -8,6 +8,10 @@ import { KartaPage } from './Pages/KartaPage'
 import { ErrorPage } from './Pages/ErrorPage'
 import { AboutMePage } from './Pages/AboutMePage'
 import { QuestionsPage } from './Pages/QuestionsPage'
+import { AboutVasPage } from './Pages/AboutVasPage.jsx'
+
+import { AdminCreditPage } from './Pages/Admin/AdminCreditPage.jsx'
+import { AdminCartAndVkladPage } from './Pages/Admin/AdminCartAndVkladPage.jsx'
 
 import { DohodPage } from './Pages/Vkalad/DohodPage'
 import { MaxPage } from './Pages/Vkalad/MaxPage'
@@ -28,6 +32,7 @@ import { NaObrazovaniePage } from './Pages/Credits/NaObrazovaniePage'
 import { DebetovCartPage } from './Pages/Carts/DebetovCartPage'
 import { DebetovZolotoCartPage } from './Pages/Carts/DebetovZolotoCartPage'
 import { VirtualitiCartPage } from './Pages/Carts/VirtualitiCartPage'
+
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -54,6 +59,10 @@ function App() {
 					<Route path='/*' element={<ErrorPage />} />
 					<Route path='/aboutme' element={<AboutMePage />} />
 					<Route path='/questions' element={<QuestionsPage />} />
+					<Route path='/aboutvas' element={<AboutVasPage />} />
+
+					<Route path='/admincredit' element={<AdminCreditPage />} />
+					<Route path='/admincart' element={<AdminCartAndVkladPage />} />
 
 					<Route path='/vkkad/dohod' element={<DohodPage />} />
 					<Route path='/vkkad/max' element={<MaxPage />} />

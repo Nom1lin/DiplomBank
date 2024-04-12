@@ -48,20 +48,19 @@ export const AvtoCreditPage = () => {
 			/> {/* Раздел Как получить кредит */}
 
 			<Zaiavki maintext='Онлайн заявка на автокредит'
-				t11='text-[13px]' t21='text-[13px]'
-				t12='text-[0px]' t22='text-[0px]'
-				mb11='mb-[39px]' mb21='mb-[39px]'
-				mb12='mb-[56px]' mb22='mb-[56px]'
 				inputopacity=' mb-[-300px] opacity-0' inputopacityPlan2=' mb-[130px] opacity-1'
 				input11='Сумма кредита' input21='Срок кредита'
 				input12='Желаемый автокредит' input22='ФИО'
 				input13='Паспортные данные' input23='Дата рождения'
 				input14='СНИЛС И ИНН' input24='Трудовая книжка'
 				input15='Мобильный телефон' input25='Электронная почта'
-
 				miniPravila11='от 1490 000 до 6 000 000 рублей' miniPravila21='от 1 до 7 лет'
-				miniPravila12='Заглушка' miniPravila22='Заглушка'
+
+				vid='Автокредит'
+				inputmin1='140000' inputmin2='12'
+				inputmax1='7000000' inputmax2='73'
 			/>
+                                           
 
 		</>
 	)

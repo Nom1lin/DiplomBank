@@ -7,13 +7,15 @@ import { checkIsAuth } from '../../redux/features/auth/authSlice'
 
 import Logo from '../../img/Logo.png'
 import PopUp from './PopUp'
-import AboutVas from './AboutVas'
+
 
 export const Navbar = () => {
 	const isAuth = useSelector(checkIsAuth) // Подриси профиля профиля 
-
 	const [isOpen, setOpen] = useState(false)  //создал переменую и функцию для реализации открытия и закрытия списка 
 	const menuRef = useRef(null) // создал переменую для реализации закрытия списка по клику вне области
+
+	const fio = useSelector(state => state.auth.user?.fio ?? 'Нет данных');// Получение фамилии из хранилища Redux
+
 	useClickOutside(menuRef, () => { //  функция для реализации закрытия списка по клику вне области
 		if (isOpen) setTimeout(() => setOpen(false), 50)
 	})
@@ -55,10 +57,10 @@ export const Navbar = () => {
 
 			<div className='flex'>
 				{isAuth && (<ul className='text-[16px] mr-[30px] mt-[15px]'> {/* Подриси профиля профиля */}
-					<li className=''>Сардак А. А.</li>
+					<li className=''>{fio}</li>
 					<li className='pt-1'>счёт: 9 999 999 Р</li>
 				</ul>)}
-				{isAuth ? <AboutVas /> : <NavLink to='/login'><div className='text-Jerry flex justify-center items-center text-[24px] mt-[20px]'>Войти</div></NavLink>}
+				{isAuth ? <NavLink to='/aboutvas'><div className='text-Jerry flex justify-center items-center mt-[13px] border p-[9px] border-Jerry'>Мой аккаунт</div></NavLink> : <NavLink to='/login'><div className='text-Jerry flex justify-center items-center mt-[13px] border p-[9px] border-Jerry'>Войти</div></NavLink>}
 			</div>
 
 		</header>

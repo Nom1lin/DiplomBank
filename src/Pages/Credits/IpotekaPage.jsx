@@ -12,7 +12,7 @@ export const IpotekaPage = () => {
 		<>
 			<Face main='С нами вы можете прямо сейчас собирать вещи'
 				body='Любая локация'
-				body2='до 12 лет' 
+				body2='до 12 лет'
 				body3='недвижимости'
 				body4='срок ипотеки'
 				opacity='opacity-0'
@@ -25,7 +25,7 @@ export const IpotekaPage = () => {
 				inputtext1='Желаемая сумма'
 				inputtext2='Срок кредита'
 				inputmin1='600000' inputmin2='12'
-				inputmax1='10000000' inputmax2='146'
+				inputmax1='7000000' inputmax2='146'
 				Chislotext2='12 %'
 				Chislominitext1='Ежемесячный платеж'
 				Chislominitext2='Ставка по кредиту'
@@ -40,19 +40,17 @@ export const IpotekaPage = () => {
 			/> {/* Раздел Как получить кредит */}
 
 			<Zaiavki maintext='Онлайн заявка на ипотеку'
-				t11='text-[0px]' t21='text-[13px]'
-				t12='text-[13px]' t22='text-[13px]'
-				mb11='mb-[56px]' mb21='mb-[35px]'
-				mb12='mb-[35px]' mb22='mb-[35px]'
 				inputopacity=' mb-[130px] opacity-1' inputopacityPlan2=' mb-[130px] opacity-1'
-				input11='Регион покупки недвижимости ' input21='Стоимость недвижимости'
-				input12='Первоначальный взнос' input22='Срок кредита'
-				input13='ФИО' input23='Паспортные данные'
-				input14='Дата рождения' input24='СНИЛС И ИНН'
-				input15='Трудовая книжка' input25='Мобильный телефон'
-				input16='Электронная почта'
-				miniPravila11='Заглушка' miniPravila21='от 600 000 до 100 000 000 рублей'
-				miniPravila12='от 30 000 до 6 000 000 рублей' miniPravila22='от 2 до 73 месяцев'
+				input11=' Стоимость недвижимости' input21='Срок кредита'
+				input12='Регион покупки недвижимости' input22='ФИО'
+				input13='Паспортные данные' input23='Дата рождения'
+				input14='СНИЛС И ИНН' input24='Трудовая книжка'
+				input15='Мобильный телефон' input25='Электронная почта'
+				miniPravila11='от 600 000 до 100 000 000 рублей' miniPravila21='от 2 до 73 месяцев'
+
+				inputmin1='600000' inputmin2='12'
+				inputmax1='7000000' inputmax2='146'
+				vid='Ипотека'
 			/>
 
 		</>

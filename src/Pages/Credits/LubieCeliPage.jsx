@@ -4,7 +4,6 @@ import Face from '../../components/Face'
 import Raschet from '../../components/Reschet'
 import Gaid from '../../components/Gaid'
 import Zaiavki from '../../components/Zaiavki'
-import Chernivik from '../../components/Chernivik'
 
 import Main from '../../img/1Credit/Main.png'
 import Image1 from '../../img/1Credit/Image1.png'
@@ -13,13 +12,6 @@ import Image2 from '../../img/1Credit/Image2.png'
 import Ramki from '../../components/Ramki'
 
 export const LubieCeliPage = () => {
-	const [value1, setValue1] = useState(0);
-	const [value2, setValue2] = useState(0);
-
-	const handleInputChange = (e, setValue) => {
-		setValue(Number(e.target.value));
-	}
-
 	return (
 		<>
 			<Face main='Оформите кредит наличными или безналичными на любые цели'
@@ -55,19 +47,17 @@ export const LubieCeliPage = () => {
 			/> {/* Раздел Как получить кредит */}
 
 			<Zaiavki maintext='Онлайн заявка на кредит'
-				t11='text-[13px]' t21='text-[13px]'
-				t12='text-[0px]' t22='text-[0px]'
-				mb11='mb-[35px]' mb21='mb-[35px]'
-				mb12='mb-[56px]' mb22='mb-[56px]'
 				inputopacity=' mb-[-300px] opacity-0' inputopacityPlan2=' mb-[130px] opacity-1'
 				input11='Сумма кредита' input21='Срок кредита'
 				input12='Цели кредита' input22='ФИО'
 				input13='Паспортные данные' input23='Дата рождения'
 				input14='СНИЛС И ИНН' input24='Трудовая книжка'
 				input15='Мобильный телефон' input25='Электронная почта'
-
 				miniPravila11='от 30 000 до 6 000 000 рублей' miniPravila21='от 2 до 73 месяцев'
-				miniPravila12='Заглушка' miniPravila22='Заглушка'
+
+				inputmin1='30000'      inputmin2='2'
+				inputmax1='6000000'   inputmax2='33'
+				vid='Кредит на любые цели'
 			/>
 
 		</>
