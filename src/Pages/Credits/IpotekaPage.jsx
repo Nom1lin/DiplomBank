@@ -1,9 +1,9 @@
 import React from 'react'
 
 import Face from '../../components/Face'
-import Raschet from '../../components/Reschet'
+import Raschet from '../../components/Raschet/Reschet'
 import Gaid from '../../components/Gaid'
-import Zaiavki from '../../components/Zaiavki'
+import Zaiavki from '../../components/VidiZaiavok/Zaiavki'
 
 import Main from '../../img/5Credit/Main.png'
 

@@ -10,9 +10,9 @@ const initialState = {
 // Создание вклада
 export const createVklad = createAsyncThunk(
   'vklad/createVklad',
-  async ({ client, vid, summa, srock, stavka, finalsumma }, { rejectWithValue }) => {
+  async ({ client, vid, summa, srock, stavka, finalsumma, DateTime }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/vklad/create', { client, vid, summa, srock, stavka, finalsumma });
+      const { data } = await axios.post('/vklad/create', { client, vid, summa, srock, stavka, finalsumma, DateTime });
       return data.vklad;
     } catch (error) {
       return rejectWithValue(error.response.data);

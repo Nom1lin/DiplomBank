@@ -2,7 +2,7 @@ import React from 'react'
 
 import Face from '../../components/Face'
 import Gaid from '../../components/Gaid'
-import ZaiavkiTwo from '../../components/ZaiavkiTwo'
+import ZaiavkiTwo from '../../components/VidiZaiavok/ZaiavkiTwo'
 
 import Main from '../../img/1Credit/Main.png'
 
@@ -25,7 +25,7 @@ export const ImushestvaPage = () => {
 				<h1 className='mb-[35px]'>Пожар, удар молнии, взрыв</h1>
 				<h1 className='mb-[35px]'>Внешние воздействие</h1>
 				<h1 className='mb-[35px]'>Залив, стихийные действия</h1>
-				<h1 className='mb-[35px] mb-[70px]'>Противоправные действия третьих лиц</h1>
+				<h1 className='mb-[105px]'>Противоправные действия третьих лиц</h1>
 
 				<h1 className='text-[40px] mb-[40px] '>Страхуется:</h1>
 				<h1 className='mb-[35px]'>Внутренняя отделка, инженерные сети и оборудование (покрытия поверхностей стен, пола, потолка, перекрытий; двери; оконные блоки)</h1>

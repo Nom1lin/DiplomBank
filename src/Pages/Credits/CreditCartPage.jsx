@@ -1,9 +1,7 @@
 import React from 'react'
 
 import Face from '../../components/Face'
-import Raschet from '../../components/Reschet'
 import Gaid from '../../components/Gaid'
-import Zaiavki from '../../components/Zaiavki'
 import Ramki from '../../components/Ramki'
 
 import Main from '../../img/4Credit/Main.png'

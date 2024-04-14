@@ -2,7 +2,7 @@ import React from 'react'
 
 import Face from '../../components/Face'
 import Gaid from '../../components/Gaid'
-import ZaiavkiTwo from '../../components/ZaiavkiTwo'
+import ZaiavkiTwo from '../../components/VidiZaiavok/ZaiavkiTwo'
 
 import Main from '../../img/1Credit/Main.png'
 

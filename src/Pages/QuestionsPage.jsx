@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react'
 import { useClickOutside } from '../hooks/useClickOutside'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import Face from '../components/Face'
-import ButtonOne from '../components/ButtonOne'
+import ButtonOne from '../components/Button/ButtonOne'
 import Logo from '../img/Main/PngMain.png'
 
 export const QuestionsPage = () => {

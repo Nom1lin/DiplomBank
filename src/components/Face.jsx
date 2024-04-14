@@ -1,7 +1,7 @@
 import React from 'react'
 
-import ButtonOne from './ButtonOne'
-import ButtonTwo from './ButtonTwo'
+import ButtonOne from './Button/ButtonOne'
+import ButtonTwo from './Button/ButtonTwo'
 
 const Face = (props) => {
 	return (

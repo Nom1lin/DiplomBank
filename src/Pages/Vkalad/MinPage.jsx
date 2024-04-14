@@ -1,7 +1,8 @@
 import React from 'react'
 
 import Face from '../../components/Face'
-import RaschetTwo from '../../components/ReschetTwo'
+import RaschetTwo from '../../components/Raschet/ReschetTwo'
+
 
 import Main from '../../img/Vklad/Main3.png'
 

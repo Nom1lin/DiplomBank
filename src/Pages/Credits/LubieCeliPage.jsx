@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Face from '../../components/Face'
-import Raschet from '../../components/Reschet'
+import Raschet from '../../components/Raschet/Reschet'
 import Gaid from '../../components/Gaid'
-import Zaiavki from '../../components/Zaiavki'
+import Zaiavki from '../../components/VidiZaiavok/Zaiavki'
+import Ramki from '../../components/Ramki'
 
 import Main from '../../img/1Credit/Main.png'
 import Image1 from '../../img/1Credit/Image1.png'
 import Image2 from '../../img/1Credit/Image2.png'
-
-import Ramki from '../../components/Ramki'
 
 export const LubieCeliPage = () => {
 	return (

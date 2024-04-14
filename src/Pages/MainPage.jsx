@@ -9,8 +9,8 @@ import Image3 from '../img/Main/ImgThree.png'
 import Image4 from '../img/Main/ImgFo.png'
 import Image5 from '../img/Main/ImgFive.png'
 
-import ButtonOne from '../components/ButtonOne'
-import ButtonTwo from '../components/ButtonTwo'
+import ButtonOne from '../components/Button/ButtonOne'
+import ButtonTwo from '../components/Button/ButtonTwo'
 
 import Ramki from '../components/Ramki'
 

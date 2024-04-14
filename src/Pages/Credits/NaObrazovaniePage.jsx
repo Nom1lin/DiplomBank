@@ -1,16 +1,14 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 import Face from '../../components/Face'
 import Gaid from '../../components/Gaid'
-import Raschet from '../../components/Reschet'
-
-import { Link, NavLink } from 'react-router-dom'
+import Raschet from '../../components/Raschet/Reschet'
+import Ramki from '../../components/Ramki'
 
 import Main from '../../img/3Credit/Main.png'
 import Image1 from '../../img/3Credit/Image1.png'
 import Image2 from '../../img/3Credit/Image2.png'
-
-import Ramki from '../../components/Ramki'
 
 export const NaObrazovaniePage = () => {
 	return (

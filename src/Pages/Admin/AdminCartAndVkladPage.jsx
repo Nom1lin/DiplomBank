@@ -26,8 +26,10 @@ export const AdminCartAndVkladPage = () => {
 	const [summa, setSumma] = useState(1000);                 const number = `${group1} ${group2} ${group3} ${group4}`;
 	const [srock, setSrock] = useState(5);                    const [balans, setBalans] = useState('0');
 	const [stavka, setStavka] = useState(null); // Процентная ставка вклада
-	const finalsumma = Math.round(summa * (stavka / 100) / 365 * 30) // Прибыль за один месяц
+	const finalsummavk = Math.round(summa * (stavka / 100) / 365 * 30) // Прибыль за один месяц
+	const finalsumma = parseInt(summa) + (finalsummavk * srock)
 	const dispatch = useDispatch();
+	const DateTime = new Date();
 
 	const handleDepositChange = (event) => {
 		const selectedValue = event.target.value;
@@ -51,7 +53,7 @@ export const AdminCartAndVkladPage = () => {
 
 	const handleCreateVklad = () => {
 		try {
-			dispatch(createVklad({ client, vid, summa, srock, stavka, finalsumma }));
+			dispatch(createVklad({ client, vid, summa, srock, stavka, finalsumma, DateTime }));
 			// Очищаем поля после создания вклада
 			setClient(''); setVid('');
 			setSumma(''); setSrock('');
@@ -162,7 +164,7 @@ export const AdminCartAndVkladPage = () => {
 						</li>
 						<li>
 							<h1 className='text-[20px] ml-[30px] mb-[5px] mt-[20px]'>Финальная сумма вклада составляет:</h1>
-							<div className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px] pt-[15px]' >{parseInt(summa) + (finalsumma * srock)}</div>
+							<div className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px] pt-[15px]' >{finalsumma}</div>
 						</li>
 						<button type='submit' className={`mt-[30px] w-[258px] h-[82px] bg-Melody shadow-xxB rounded-[40px] text-Jerry flex justify-center items-center text-[24px]`}
 						onClick={handleCreateVklad} >Отправить</button>

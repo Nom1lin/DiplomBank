@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { createStrahovanie } from '../redux/features/strahovanie/strahovanieSlice'
+import { createStrahovanie } from '../../redux/features/strahovanie/strahovanieSlice'
 
 import { toast } from 'react-toastify'
 

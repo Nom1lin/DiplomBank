@@ -34,7 +34,7 @@ const Reschet = (props) => {
 					<ul className='w-[600px] h-[235px] bg-Tom shadow-xxA rounded-[40px] p-[30px]'>
 						<li className='flex justify-between'>
 							<ul>
-								<li className='text-[40px]'>{(Math.round((Summa * Math.pow(1 + Stavka, Srock) * Stavka) / (Math.pow(1 + Stavka, Srock) - 1).toFixed(2), 1))}</li> {/*--- Ежемесячный процент */}
+								<li className='text-[40px]'>{(Math.round((Summa * Math.pow(1 + Stavka, Srock) * Stavka) / (Math.pow(1 + Stavka, Srock) - 1).toFixed(2)))}</li> {/*--- Ежемесячный процент */}
 								<li className='text-[13px] text-Melody/70 mt-[-8px]'>{props.Chislominitext1}</li>
 							</ul>
 							<ul>

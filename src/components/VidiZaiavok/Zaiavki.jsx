@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
-import { createCredid } from '../redux/features/credits/creditSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { createCredid } from '../../redux/features/credits/creditSlice'
 
 import { toast } from 'react-toastify'
 
 const Zaiavki = (props) => {
-	const [value11, setValue11] = useState(''); const [value21, setValue21] = useState('');
+	const [value11, setValue11] = useState(''); const [value21, setValue21] = useState(''); 
+	const client = useSelector(state => state.auth.user?.username ?? 'Нет данных');// Получение фамилии из хранилища Redux
 	const [value12, setValue12] = useState(''); const [value22, setValue22] = useState('');
 	const [value13, setValue13] = useState(''); const [value23, setValue23] = useState('');
 	const [value14, setValue14] = useState(''); const [value24, setValue24] = useState('');
 	const [value15, setValue15] = useState(props.celi); const [value25, setValue25] = useState(props.srok);
-	const DateTime = new Date();
-	const vid = props.vid; 
+	const DateTime = new Date();    	const vid = props.vid; 
+	const Stavka = 0.156 / 12; // Процентная ставка
+	const Mesiac = (Math.round((value11 * Math.pow(1 + Stavka, value21) * Stavka) / (Math.pow(1 + Stavka, value21) - 1).toFixed(2)))
+
 	const dispatch = useDispatch()
 
 	const submitHandler = () => {
@@ -23,7 +26,7 @@ const Zaiavki = (props) => {
         } else {
             dispatch(
                 createCredid({
-                    vid, value11, value21, value12, value22, value13, value23, value14, value24, value15, value25, DateTime,
+                    client, vid, value11, value21, value12, value22, value13, value23, value14, value24, value15, value25, DateTime, Mesiac
                 })
             );
             // Очищаем поля после создания вклада
@@ -96,7 +99,7 @@ const Zaiavki = (props) => {
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input22}</li>
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 3*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="date"
 								value={value23} onChange={(e) => setValue23(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input23}</li>
@@ -108,7 +111,7 @@ const Zaiavki = (props) => {
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input24}</li>
 						</div>
 						<div className={props.inputopacityPlan2}> {/* Инпут 5*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="email"
 								value={value25} onChange={(e) => setValue25(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input25}</li>

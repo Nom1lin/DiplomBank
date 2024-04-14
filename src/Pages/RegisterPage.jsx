@@ -46,7 +46,7 @@ export const RegisterPage = () => {
 	return (
 		< >
 			<form className='flex justify-center mt-[10px] text-Melody' onSubmit={(e) => e.preventDefault()}>
-				<div className='w-[1100px] h-[1060px] bg-Tom rounded-[40px] shadow-xxA p-[40px]'>
+				<div className='w-[1100px] bg-Tom rounded-[40px] shadow-xxA p-[40px]'>
 					<h1 className='text-[48px] mb-[45px] flex justify-center mt-[-10px]'>Регистрация</h1>
 					<div className='flex justify-between'>
 						<ul>
@@ -84,7 +84,7 @@ export const RegisterPage = () => {
 
 							<li>
 								<h1 className='text-[20px] mt-[20px] ml-[30px] mb-[5px]'>Введите вашу дату рождения</h1>
-								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" value={birth} onChange={(e) => setBirth(e.target.value)} />
+								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="date" value={birth} onChange={(e) => setBirth(e.target.value)} />
 							</li>
 
 							<li>
