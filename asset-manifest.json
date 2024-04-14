@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/DiplomBank/static/css/main.37e95700.css",
-    "main.js": "/DiplomBank/static/js/main.c97b32f0.js",
+    "main.css": "/DiplomBank/static/css/main.e89d927c.css",
+    "main.js": "/DiplomBank/static/js/main.ab38f3d2.js",
     "static/media/Stress-amico.png": "/DiplomBank/static/media/Stress-amico.db6d0f4cd8c2ea1a7000.png",
     "static/media/Image3.png": "/DiplomBank/static/media/Image3.d7c040ddfef4548d66ca.png",
     "static/media/Image1.png": "/DiplomBank/static/media/Image1.53c850732f2b38c6e1c1.png",
@@ -24,11 +24,11 @@
     "static/media/MarkerOrange.png": "/DiplomBank/static/media/MarkerOrange.9a63ae0d0dfddff420ac.png",
     "static/media/MarkerBlack.png": "/DiplomBank/static/media/MarkerBlack.fb2fab818a4baa84b55d.png",
     "index.html": "/DiplomBank/index.html",
-    "main.37e95700.css.map": "/DiplomBank/static/css/main.37e95700.css.map",
-    "main.c97b32f0.js.map": "/DiplomBank/static/js/main.c97b32f0.js.map"
+    "main.e89d927c.css.map": "/DiplomBank/static/css/main.e89d927c.css.map",
+    "main.ab38f3d2.js.map": "/DiplomBank/static/js/main.ab38f3d2.js.map"
   },
   "entrypoints": [
-    "static/css/main.37e95700.css",
-    "static/js/main.c97b32f0.js"
+    "static/css/main.e89d927c.css",
+    "static/js/main.ab38f3d2.js"
   ]
 }
