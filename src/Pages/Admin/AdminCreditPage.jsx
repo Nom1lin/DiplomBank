@@ -57,7 +57,7 @@ export const AdminCreditPage = () => {
 			/> {/* Раздел Как получить кредит */}
 
 			<div className="mt-[100px] text-[16px]">
-				<h1 className='text-Melody text-[48px] mb-[40px]'>Заявки на кредит</h1>
+				<h1 className='text-Melody text-[40px] mb-[40px]'>Заявки на кредит</h1>
 				{
 					credits?.map((credit, idx) => (
 					<Credit key={idx} credit={credit} />

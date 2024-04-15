@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { useDispatch } from 'react-redux';
 import { useClickOutside } from '../../hooks/useClickOutside'
 import { NavLink } from 'react-router-dom'
-
+import { toast } from 'react-toastify'
 import { createVklad } from '../../redux/features/vklad/vkladSlice'
 import { createCart } from '../../redux/features/cart/cartSlice'
 
@@ -53,22 +53,38 @@ export const AdminCartAndVkladPage = () => {
 
 	const handleCreateVklad = () => {
 		try {
-			dispatch(createVklad({ client, vid, summa, srock, stavka, finalsumma, DateTime }));
-			// Очищаем поля после создания вклада
-			setClient(''); setVid('');
-			setSumma(''); setSrock('');
-			setStavka('');
-		} catch (error) { console.log(error) }
+			if ( client.trim() === '' || vid.trim() === '' || summa.trim() === '' || srock.trim() === '' )
+			{ toast('Вы не ввели одно из значений, перевыберите вид вклада'); }
+			else {
+				dispatch(createVklad({ client, vid, summa, srock, stavka, finalsumma, DateTime }));
+				// Очищаем поля после создания вклада
+				setClient(''); setVid('');
+				setSumma(''); setSrock('');
+				setStavka('');
+				toast('Вклад открыт');
+			}
+		} catch (error) { console.log(error); toast('Вы ввели что-то не то'); }
 	};
+
 
 	const handleCreateCart = () => {
 		try {
-			dispatch(createCart({ clientCart, vidCart, number, balans }));
-			// Очищаем поля после создания вклада
-			setClientCart(''); setVidCart('');
-		  setBalans('');
-		} catch (error) { console.log(error) }
-	};
+			if ( clientCart.trim() === '' || vidCart.trim() === '' || number.trim() === '' || balans.trim() === '' ) 
+			{
+				toast('Вы не ввели одно из значений, перевыберите вид карты');
+			} else {
+				dispatch(
+					createCart({ clientCart, vidCart, number, balans })
+				);
+				// Очищаем поля после создания вклада
+				setClientCart(''); setVidCart(''); setBalans('');
+				toast('Карта открыта');
+			}
+		} catch (error) {
+			console.log(error);
+			toast('Вы ввели что-то не то');
+		}
+	}
 
 	useClickOutside(menuRef, () => { //  функция для реализации закрытия списка по клику вне области
 		if (isOpen) setTimeout(() => setOpen(false), 50)

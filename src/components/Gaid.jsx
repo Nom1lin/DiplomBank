@@ -3,7 +3,7 @@ import React from 'react'
 const Gaid = (props) => {
 	return (
 		<div className="text-Melody text-[20px] mt-[100px]">
-			<span className="text-[48px]">{props.maintext}</span>
+			<span className="text-[40px]">{props.maintext}</span>
 			<ul className="mt-[40px]">
 				<div className="flex atems-center">
 					<h1 className='text-[40px] mr-[50px] font-semibold pb-[15px]'>01</h1>

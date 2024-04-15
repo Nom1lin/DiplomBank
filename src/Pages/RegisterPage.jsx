@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { registerUser, checkIsAuth } from '../redux/features/auth/authSlice'
+import InputMask from 'react-input-mask';
 
 export const RegisterPage = () => {
 	const [username, setUsername] = useState('')
@@ -62,7 +63,8 @@ export const RegisterPage = () => {
 
 							<li>
 								<h1 className='text-[20px] mt-[20px] ml-[30px] mb-[5px]'>Введите ваш номер телефон</h1>
-								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number" value={telephone} onChange={(e) => setTelephone(e.target.value)} />
+								<InputMask className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="telephone" 
+								mask="+7 (999) 999-99-99" value={telephone} onChange={(e) => setTelephone(e.target.value)} />
 							</li>
 
 							<li>

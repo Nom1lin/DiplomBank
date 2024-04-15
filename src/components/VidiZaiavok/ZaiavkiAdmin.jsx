@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { createCredid } from '../../redux/features/credits/creditSlice'
+import InputMask from 'react-input-mask';
 
 import { toast } from 'react-toastify'
 
@@ -21,7 +22,7 @@ const Zaiavki = (props) => {
 			if (
 				vid.trim() === '' || value11.trim() === '' || value21.trim() === '' || value12.trim() === '' || value22.trim() === '' || value13.trim() === '' || value23.trim() === '' || value14.trim() === '' || value24.trim() === '' || value15.trim() === '' || value25.trim() === '' || !DateTime
 			) {
-				toast('Вы не ввели одно из значений');
+				toast('Вы не ввели одно из значений, перевыберите вид кредита');
 			} else {
 				dispatch(
 					createCredid({
@@ -30,7 +31,7 @@ const Zaiavki = (props) => {
 				);
 				// Очищаем поля после создания вклада
 				setValue11(''); setValue21(''); setValue12(''); setValue22(''); setValue13(''); setValue23(''); setValue14(''); setValue24(''); setValue15(''); setValue25('');
-				toast('Ваша заявка на рассмотрении');
+				toast('Заявка отправлена');
 			}
 		} catch (error) {
 			console.log(error);
@@ -38,15 +39,20 @@ const Zaiavki = (props) => {
 		}
 	}
 
+	const handleCreditChange = (event) => {
+		const selectedValue = event.target.value;
+		setVid(selectedValue);
+	}
+
 
 	return (
 		<form className="mt-[100px] text-Melody" onSubmit={(e) => e.preventDefault()}>
-			<span className="text-[48px]">{props.maintext}</span>
+			<span className="text-[40px]">{props.maintext}</span>
 			<div className="mt-[45px] w-[1180px] bg-Tom rounded-[40px] p-[56px] shadow-xxA">
 				<div className="flex justify-between">
 					<ul className=' '>
 
-						<div className='mb-[29px] mt-[-13px]'> {/* Инпут 1*/}  {/*--- Сумма займа */}
+						<div className='mb-[35px] mt-[-13px]'> {/* Инпут 1*/}  {/*--- Сумма займа */}
 							<li className='text-[20px] mb-[12px]'>{props.inputtext1}</li>
 							<div className="w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px] pt-[]"><li className='text-[20px] mb-[8px]'>{props.input11}</li>{value11} рублей</div>
 							<li className='mt-[-12px] pl-[30px]'><input className='w-[440px] accent-Melody' type="range" min={props.inputmin1} max={props.inputmax1} step='10000' value={value11} onChange={(e) => setValue11(e.target.value)} /></li>
@@ -69,27 +75,27 @@ const Zaiavki = (props) => {
 
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 3*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
 								value={value13} onChange={(e) => setValue13(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input13}</li>
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 4*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
 								value={value14} onChange={(e) => setValue14(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input14}</li>
 						</div>
 						<div className={props.inputopacityPlan2}> {/* Инпут 5*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
-								value={value15} onChange={(e) => setValue15(e.target.value)}
+							<li className=''><InputMask className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]'
+								type="telephone" mask="+7 (999) 999-99-99" value={value15} onChange={(e) => setValue15(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input15}</li>
 						</div>
 					</ul>
 
 					<ul className=''>
-						<div className='mb-[29px] mt-[-13px]'> {/* Инпут 1*/}  {/*--- Сумма займа */}
+						<div className='mb-[35px] mt-[-13px]'> {/* Инпут 1*/}  {/*--- Сумма займа */}
 							<li className='text-[20px] mb-[12px]'>{props.inputtext1}</li>
 							<div className="w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px] pt-[]"><li className='text-[20px] mb-[8px]'>{props.input21}</li>{value21} месяцев</div>
 							<li className='mt-[-12px] pl-[30px]'><input className='w-[440px] accent-Melody' type="range" min={props.inputmin2} max={props.inputmax2} step='1' value={value21} onChange={(e) => setValue21(e.target.value)} /></li>
@@ -98,12 +104,19 @@ const Zaiavki = (props) => {
 								<h1>{props.inputmax2} месяцев</h1>
 							</li>
 						</div>
+
 						<div className='mb-[130px]'> {/* Инпут vid*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
-								value={vid} onChange={(e) => setVid(e.target.value)}
-							/></li>
-							<li className='text-[20px] mt-[-100px] ml-[30px]'>Введите вид кредита</li>
+
+							<select className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' value={vid} onChange={handleCreditChange}>
+								<option value="На любые цели">Кредит "На любые цели"</option>
+								<option value="Автокредит">Кредит "Автокредит"</option>
+								<option value="На образование">Кредит "На образование"</option>
+								<option value="Ипотека">Кредит "Ипотека"</option>
+								<option value="Для бизнеса">Кредит "Для бизнеса"</option>
+							</select>
+							<h1 className='text-[20px] mt-[-100px] ml-[30px]'>Введите вид кредита</h1>
 						</div>
+
 						<div className='mb-[130px]'> {/* Инпут 2*/}
 							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
 								value={value22} onChange={(e) => setValue22(e.target.value)}
@@ -111,19 +124,19 @@ const Zaiavki = (props) => {
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input22}</li>
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 3*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="date"
 								value={value23} onChange={(e) => setValue23(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input23}</li>
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 4*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
 								value={value24} onChange={(e) => setValue24(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input24}</li>
 						</div>
 						<div className={props.inputopacityPlan2}> {/* Инпут 5*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="email"
 								value={value25} onChange={(e) => setValue25(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input25}</li>

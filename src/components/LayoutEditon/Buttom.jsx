@@ -1,11 +1,13 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { checkIsAuth } from '../../redux/features/auth/authSlice'
 import { SlSocialVkontakte } from "react-icons/sl";
 import { FaTelegramPlane, FaOdnoklassniki, FaInstagram, FaFacebookF, FaWindows, FaApple } from "react-icons/fa";
 import { BsAndroid2 } from "react-icons/bs";
 
 export const Buttom = () => {
-	const isAuth = true; {/* Подриси профиля профиля */ }
+	const isAuth = useSelector(checkIsAuth) // Подриси профиля профиля 
 	return (
 		<>
 			{isAuth && (

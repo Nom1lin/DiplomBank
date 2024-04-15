@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { createCredid } from '../../redux/features/credits/creditSlice'
+import InputMask from 'react-input-mask';
 
 import { toast } from 'react-toastify'
 
@@ -42,7 +43,7 @@ const Zaiavki = (props) => {
 
 	return (
 		<form className="mt-[100px] text-Melody" onSubmit={(e) => e.preventDefault()}>
-			<span className="text-[48px]">{props.maintext}</span>
+			<span className="text-[40px]">{props.maintext}</span>
 			<div className="mt-[45px] w-[1180px] bg-Tom rounded-[40px] p-[56px] shadow-xxA">
 				<div className="flex justify-between">
 					<ul className=' '>
@@ -63,20 +64,20 @@ const Zaiavki = (props) => {
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input12}</li>
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 3*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
 								value={value13} onChange={(e) => setValue13(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input13}</li>
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 4*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
 								value={value14} onChange={(e) => setValue14(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input14}</li>
 						</div>
 						<div className={props.inputopacityPlan2}> {/* Инпут 5*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
-								value={value15} onChange={(e) => setValue15(e.target.value)}
+							<li className=''><InputMask className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]'
+								type="telephone" mask="+7 (999) 999-99-99" value={value15} onChange={(e) => setValue15(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input15}</li>
 						</div>
@@ -105,7 +106,7 @@ const Zaiavki = (props) => {
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input23}</li>
 						</div>
 						<div className='mb-[130px]'> {/* Инпут 4*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
 								value={value24} onChange={(e) => setValue24(e.target.value)}
 							/></li>
 							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input24}</li>

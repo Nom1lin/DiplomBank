@@ -118,7 +118,7 @@ export const AboutVasPage = () => {
 
 						<li className='pb-[10px] pt-[60px] text-Melody/70 flex'><MdOutlineIncompleteCircle className='mr-2 mt-[2px]' size='20px' /><span>Анализ расходов</span></li>
 						<li className='pb-[15px] text-Melody/70 flex'><FaTasks className='mr-2 mt-[2px]' size='20px' /><span>Условия обслуживания</span></li>
-						<li className='pb-[15px] text-Melody/70 flex'><FaRegUserCircle className='mr-2 mt-[2px]' size='20px' /><span>ГосУслуги</span></li>
+						<li className='pb-[15px] text-Melody/70 flex'><FaRegUserCircle className='mr-2 mt-[2px]' size='20px' /><a href='https://www.gosuslugi.ru/'>ГосУслуги</a></li>
 						<div className='flex '>
 							<NavLink to={'/'}>
 								<button onClick={logoutHandler} className='text-[#ED7D7D]/70 flex'>
@@ -145,8 +145,10 @@ export const AboutVasPage = () => {
 					<div className="bg-Melody/80 p-[0.5px] my-[13px]" />
 					<div> {/* Раздел вывода данных о карте */}
 						{carts?.map((cart, idx) => (
-							<MyCart key={1} cart={cart} />
+							<MyCart key={idx} cart={cart} id={cart._id} />
 						))}
+
+
 						<div className="flex" onClick={() => set2Open(!is2Open)}>  {/* Третья карта */}
 							<div className="w-[150px] h-[84px] bg-Tom text-Melody flex justify-center items-center "><GoPlusCircle size='40px' /></div>
 							<span className="ml-[23px] mt-[15px] text-Melody/80">Добавить карту</span>

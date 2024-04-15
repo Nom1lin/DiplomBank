@@ -56,9 +56,8 @@ export const Navbar = () => {
 			}
 
 			<div className='flex'>
-				{isAuth && (<ul className='text-[16px] mr-[30px] mt-[15px]'> {/* Подриси профиля профиля */}
+				{isAuth && (<ul className='text-[16px] mr-[30px] mt-[25px]'> {/* Подриси профиля профиля */}
 					<li className=''>{fio}</li>
-					<li className='pt-1'>счёт: 9 999 999 Р</li>
 				</ul>)}
 				{isAuth ? <NavLink to='/aboutvas'><div className='text-Jerry flex justify-center items-center mt-[13px] border p-[9px] border-Jerry'>Мой аккаунт</div></NavLink> : <NavLink to='/login'><div className='text-Jerry flex justify-center items-center mt-[13px] border p-[9px] border-Jerry'>Войти</div></NavLink>}
 			</div>
