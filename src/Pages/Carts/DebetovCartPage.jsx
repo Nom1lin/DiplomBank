@@ -20,19 +20,21 @@ export const DebetovCartPage = () => {
 				img={Main}
 				button='Войти'
 			/>
-			<div className="bg-Melody p-[1px] mt-[120px]" /> {/* Разделяющая линия */}
+			<div className="bg-Melody p-[1px] 2xl:mt-[260px] sm:mt-[430px] mb-[50px]" /> {/* Разделяющая линия */}
 			<div className="mt-[-50px]">
 				<Gaid maintext='Как получить карту'
 					text01='Взять паспорт'
 					text02='Прийти в любой офис банка'
 					text03='Прийти в любой офис банка'
 				/> {/* Раздел Как получить кредит */}
-
 			</div>
 
-			<div className="mt-[100px] flex justify-between"> {/* Раздел преимущества */}
+			<div className="mt-[100px] 2xl:flex 2xl:justify-between"> {/* Раздел преимущества */}
 				<Ramki text='Бесплатное оформление и обслуживание' img={Image1} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
-				<Ramki text='Снятие наличных без комиссии' img={Image2} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
+				<div className='sm:mt-[30px]'>
+					<Ramki text='Снятие наличных без комиссии' img={Image2} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
+				</div>
+
 			</div>
 		</>
 	)

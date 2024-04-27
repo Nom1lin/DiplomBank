@@ -12,10 +12,12 @@ export const RegisterPage = () => {
 	const [birth, setBirth] = useState('')
 	const [passport, setPassport] = useState('')
 	const [telephone, setTelephone] = useState('')
-	const [email, setEmail] = useState('')
+	const [email, setEmail] = useState('@mail.ru')
 	const [snils, setSnils] = useState('')
 	const [inn, setInn] = useState('')
-	const [trudbook, setTrudbook] = useState('')
+	const [ticket, setTicket] = useState('')
+	const [staj, setStaj] = useState('')
+	const [work, setWork] = useState('')
 
 	const { status } = useSelector(state => state.auth)
 	const isAuth = useSelector(checkIsAuth)
@@ -31,12 +33,12 @@ export const RegisterPage = () => {
 
 	const handleSubmit = () => {
 		try {
-			dispatch(registerUser({ username, password, fio, birth, telephone, email, passport, snils, inn, trudbook })) // передает в виде объекта данные с полей ввода 
+			dispatch(registerUser({ username, password, fio, birth, telephone, email, passport, snils, inn, ticket, staj, work })) // передает в виде объекта данные с полей ввода 
 			setUsername(''); setPassword('') // очисщяем
 			setFio(''); setBirth('')
 			setPassport(''); setTelephone('')
-			setEmail(''); setInn(''); setSnils('')
-			setTrudbook('');
+			setEmail('@mail.ru'); setInn(''); setSnils('')
+			setTicket(''); setStaj(''); setWork('');
 
 		} catch (error) {
 			console.log(error)
@@ -46,69 +48,86 @@ export const RegisterPage = () => {
 
 	return (
 		< >
-			<form className='flex justify-center mt-[10px] text-Melody' onSubmit={(e) => e.preventDefault()}>
-				<div className='w-[1100px] bg-Tom rounded-[40px] shadow-xxA p-[40px]'>
-					<h1 className='text-[48px] mb-[45px] flex justify-center mt-[-10px]'>Регистрация</h1>
+			<form className='flex justify-center mt-[-30px] text-Melody' onSubmit={(e) => e.preventDefault()}>
+				<div className='w-[900px] bg-Tom rounded-[40px] shadow-xxA px-[40px] py-[20px]'>
+					<h1 className='text-[34px] mb-[25px] flex justify-center mt-[-10px]'>Регистрация</h1>
 					<div className='flex justify-between'>
-						<ul>
+						<ul className=''>
 							<li>
-								<h1 className='text-[20px] ml-[30px] mb-[5px]'>Придумайте себе Логин</h1>
-								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+								<h1 className='ml-[30px] mb-[5px]'>Логин</h1>
+								<input className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
 							</li>
 
 							<li>
-								<h1 className='text-[20px] mt-[20px] ml-[30px] mb-[5px]'>Введите ваше ФИО</h1>
-								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text" value={fio} onChange={(e) => setFio(e.target.value)} />
+								<h1 className='mt-[20px] ml-[30px] mb-[5px]'>Пароль</h1>
+								<input className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 							</li>
 
 							<li>
-								<h1 className='text-[20px] mt-[20px] ml-[30px] mb-[5px]'>Введите ваш номер телефон</h1>
-								<InputMask className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="telephone" 
-								mask="+7 (999) 999-99-99" value={telephone} onChange={(e) => setTelephone(e.target.value)} />
+								<h1 className='mt-[20px] ml-[30px] mb-[5px]'>Электронная почта</h1>
+								<input className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
 							</li>
 
 							<li>
-								<h1 className='text-[20px] mt-[20px] ml-[30px] mb-[5px]'>Введите серию и номер пасспорта</h1>
-								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number" value={passport} onChange={(e) => setPassport(e.target.value)} />
+								<h1 className='mt-[20px] ml-[30px] mb-[5px]'>Номер телефон</h1>
+								<InputMask className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="telephone"
+									mask="+7 (999) 999-99-99" value={telephone} onChange={(e) => setTelephone(e.target.value)} />
 							</li>
 
 							<li>
-								<h1 className='text-[20px] mt-[20px] ml-[30px] mb-[5px]'>Введите СНИЛС</h1>
-								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number" value={snils} onChange={(e) => setSnils(e.target.value)} />
+								<h1 className='mt-[20px] ml-[30px] mb-[5px]'>СНИЛС</h1>
+								<InputMask className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="telephone" 
+								mask="999-999-999 99" value={snils} onChange={(e) => setSnils(e.target.value)} />
 							</li>
+
+							<li>
+								<h1 className='mt-[20px] ml-[30px] mb-[5px]'>ИНН</h1>
+								<InputMask className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="telephone"
+								mask="9|9|9|9|9|9|9|9|9|9|9|9" value={inn} onChange={(e) => setInn(e.target.value)} />
+							</li>
+
 						</ul>
 
 						<ul>
 							<li>
-								<h1 className='text-[20px] ml-[30px] mb-[5px]'>Придумайте себе пароль</h1>
-								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+								<h1 className='ml-[30px] mb-[5px]'>ФИО <span className='text-[13px] text-Melody/70'>(полностью)</span></h1>
+								<input className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="text" value={fio} onChange={(e) => setFio(e.target.value)} />
 							</li>
 
 							<li>
-								<h1 className='text-[20px] mt-[20px] ml-[30px] mb-[5px]'>Введите вашу дату рождения</h1>
-								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="date" value={birth} onChange={(e) => setBirth(e.target.value)} />
+								<h1 className='mt-[20px] ml-[30px] mb-[5px]'>Дата рождения</h1>
+								<input className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="date" value={birth} onChange={(e) => setBirth(e.target.value)} />
 							</li>
 
 							<li>
-								<h1 className='text-[20px] mt-[20px] ml-[30px] mb-[5px]'>Введите вашу почту</h1>
-								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+								<h1 className='mt-[20px] ml-[30px] mb-[5px]'>Серия и номер пасспорта</h1>
+								<InputMask className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="string"
+								mask="99 99 999999" value={passport} onChange={(e) => setPassport(e.target.value)} />
 							</li>
 
 							<li>
-								<h1 className='text-[20px] mt-[20px] ml-[30px] mb-[5px]'>Введите данные трудовой книги</h1>
-								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number" value={trudbook} onChange={(e) => setTrudbook(e.target.value)} />
+								<h1 className='mt-[20px] ml-[30px] mb-[5px]'>Номер военного билета</h1>
+								<InputMask className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="string" 
+								mask="№ 9999999" value={ticket} onChange={(e) => setTicket(e.target.value)} />
 							</li>
 
 							<li>
-								<h1 className='text-[20px] mt-[20px] ml-[30px] mb-[5px]'>Введите ИНН</h1>
-								<input className='w-[500px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number" value={inn} onChange={(e) => setInn(e.target.value)} />
+								<h1 className='mt-[20px] ml-[30px] mb-[5px]'>Стаж работы на последнем месте</h1>
+								<input className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="number" value={staj} onChange={(e) => setStaj(e.target.value)} />
+							</li>
+
+							<li>
+								<h1 className='mt-[20px] ml-[30px] mb-[5px]'>Название вашей работы</h1>
+								<input className='w-[400px] h-[50px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px]' type="string" value={work} onChange={(e) => setWork(e.target.value)} />
 							</li>
 						</ul>
 					</div>
-
-					<div className='mt-[60px] ml-[381px]'>
-						<button type='submit' onClick={handleSubmit} className={`w-[258px] h-[82px] bg-Melody shadow-xxB rounded-[40px] text-Jerry flex justify-center items-center text-[24px]`}>Зарегистрироваться</button>
-						<NavLink to={'/login'} className='text-[#00C2FF] text-[13px] ml-[55px]'>У вас уже есть аккаунт?</NavLink>
+					<h1 className='mt-[20px] text-[13px] ml-[30px]'>Введенные вами, данные будут учитываться при работе с вами.</h1>
+					<div className='flex justify-center mt-[30px]'>
+						<button type='submit' onClick={handleSubmit} className={`w-[258px] h-[82px] bg-Melody shadow-xxB rounded-[40px] text-Jerry flex justify-center items-center text-[20px]`}>Зарегистрироваться</button>
+					</div>
+					<div className='flex justify-center mt-[10px]'>
+						<NavLink to={'/login'} className='text-[#00C2FF] text-[13px] '>У вас уже есть аккаунт?</NavLink>
 					</div>
 				</div>
 			</form >

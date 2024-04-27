@@ -8,8 +8,8 @@ const ReschetTwo = (props) => {
 
 	return (
 		<div className="text-Melody">
-			<h1 className='text-[32px] mb-[60px]'>{props.maintext}</h1> {/* Заголовок */}
-			<div className='flex justify-between'>
+			<h1 className='2xl:text-[36px] sm:text-[32px] 2xl:mb-[60px] sm:mb-[50px]'>{props.maintext}</h1> {/* Заголовок */}
+			<div className='2xl:flex 2xl:justify-between sm:block'>
 				<ul className='w-580px'> {/* Раздел инпута */}
 					<div className='mb-[33px] mr-[120px]'> {/* Инпут 1*/}  {/*--- Сумма займа */}
 						<li className='text-[20px] mb-[13px]'>{props.inputtext1}</li>
@@ -30,7 +30,7 @@ const ReschetTwo = (props) => {
 						</li>
 					</div>
 				</ul>
-				<ul> {/* Раздел калоькулятора */}
+				<ul className='sm:mt-[50px]'> {/* Раздел калоькулятора */}
 					<ul className='w-[600px] h-[235px] bg-Tom shadow-xxA rounded-[40px] p-[30px]'>
 						<li className='flex justify-between'>
 							<ul>

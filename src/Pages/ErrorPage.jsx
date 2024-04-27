@@ -6,10 +6,10 @@ export const ErrorPage = () => {
 	return (
 		<>
 			<div className="flex justify-center">
-				<img className='w-[1100px] h-[] ' src={Error} alt="" />
+				<img className='2xl:w-[1100px] sm:w-[500px] ' src={Error} alt="" />
 
 			</div>
-			<h1 className="flex justify-center text-[40px] text-Jerry mt-[50px]">Этой страницы не существует, вернитесь на прошлую страницу</h1>
+			<h1 className="flex justify-center 2xl:text-[36px] sm:text-[28px] text-Jerry mt-[50px]">Этой страницы не существует, вернитесь на прошлую страницу</h1>
 		</>
 	)
 }

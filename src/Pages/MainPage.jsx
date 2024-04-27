@@ -23,20 +23,20 @@ export const MainPage = () => {
 				opacity='opacity-1'
 				button='Войти'
 			/>
-			<div className='mt-[160px] text-Melody'>
-				<span className='text-[32px] mb-[20px]'>Преимущества</span>
+			<div className='2xl:mt-[230px] sm:mt-[220px] text-Melody'>
+				<span className='2xl:text-[32px] sm:text-[20px] mb-[20px]'>Преимущества</span>
 				<div className='flex justify-between  mt-[23px]'>
 					<Ramki text='Надежное хранение средств' img={Image1} w='w-[340px]' h='h-[322px]' wi='w-[250px]' hi='h-[250px]' px='px-[45px]' pt='pt-[10px]' />
 					<Ramki text='Удобство' img={Image2} w='w-[340px]' h='h-[322px]' wi='w-[250px]' hi='h-[250px]' px='px-[45px]' pt='pt-[10px]' />
-					<Ramki text='Финансовая безопасность' img={Image3} w='w-[690px]' h='h-[322px]' wi='w-[250px]' hi='h-[250px]' px='px-[225px]' pt='pt-[10px]' />
+					<Ramki text='Финансовая безопасность' img={Image3} w='w-[690px]' h='h-[322px]' wi='w-[250px]' hi='h-[250px]' px='px-[225px]' pt='pt-[10px]' hidden='sm:hidden' />
 				</div>
 				<div className='flex justify-between  mt-[20px]'>
-					<Ramki text='Консультации и поддержка' img={Image4} w='w-[690px]' h='h-[322px]' wi='w-[250px]' hi='h-[250px]' px='px-[225px]' pt='pt-[10px]' />
-					<Ramki text='Программы лояльности' img={Image5} w='w-[690px]' h='h-[322px]' wi='w-[250px]' hi='h-[250px]' px='px-[225px]' pt='pt-[10px]' />
+					<Ramki text='Консультации и поддержка' img={Image4} w='w-[690px]' h='h-[322px]' wi='w-[250px]' hi='h-[250px]' px='px-[225px]' pt='pt-[10px]' hidden='sm:hidden' />
+					<Ramki text='Программы лояльности' img={Image5} w='w-[690px]' h='h-[322px]' wi='w-[250px]' hi='h-[250px]' px='px-[225px]' pt='pt-[10px]'  />
 				</div>
 			</div>
 
-			<div className='mt-[100px] text-Melody '>
+			<div className='mt-[100px] text-Melody sm:hidden 2xl:block'>
 				<span className='text-[32px] mb-[20px]'>Наше обслуживания</span>
 				<div className="flex">
 					<div className="ml-[400px]">
@@ -107,7 +107,7 @@ export const MainPage = () => {
 
 			</div>
 
-			<div className='mt-[100px] text-Melody '>
+			<div className='mt-[100px] text-Melody sm:hidden 2xl:block'>
 				<span className='text-[32px] '>Как пользоваться</span>
 				<div className='flex justify-between mt-[10px]'>
 					<ul>

@@ -22,15 +22,14 @@ export const AdminCartAndVkladPage = () => {
 	const group4 = Math.floor(Math.random() * 10000);
 
 	const [client, setClient] = useState('');                 const [clientCart, setClientCart] = useState('');
-	const [vid, setVid] = useState('');                       const [vidCart, setVidCart] = useState('');
+	const [vid, setVid] = useState('Доходный');                       const [vidCart, setVidCart] = useState('Кредитная');
 	const [summa, setSumma] = useState(1000);                 const number = `${group1} ${group2} ${group3} ${group4}`;
 	const [srock, setSrock] = useState(5);                    const [balans, setBalans] = useState('0');
-	const [stavka, setStavka] = useState(null); // Процентная ставка вклада
+	const [stavka, setStavka] = useState(10.8); // Процентная ставка вклада
 	const finalsummavk = Math.round(summa * (stavka / 100) / 365 * 30) // Прибыль за один месяц
 	const finalsumma = parseInt(summa) + (finalsummavk * srock)
 	const dispatch = useDispatch();
 	const DateTime = new Date();
-
 	const handleDepositChange = (event) => {
 		const selectedValue = event.target.value;
 		setVid(selectedValue);
@@ -45,12 +44,10 @@ export const AdminCartAndVkladPage = () => {
 		const selectedStavka = stavkaMap[selectedValue];
 		setStavka(selectedStavka);
 	}
-
 	const handleCartChange = (event) => {
 		const selectedValue = event.target.value;
 		setVidCart(selectedValue);
 	}
-
 	const handleCreateVklad = () => {
 		try {
 			if ( client.trim() === '' || vid.trim() === '' || summa.trim() === '' || srock.trim() === '' )
@@ -65,8 +62,6 @@ export const AdminCartAndVkladPage = () => {
 			}
 		} catch (error) { console.log(error); toast('Вы ввели что-то не то'); }
 	};
-
-
 	const handleCreateCart = () => {
 		try {
 			if ( clientCart.trim() === '' || vidCart.trim() === '' || number.trim() === '' || balans.trim() === '' ) 
@@ -85,7 +80,6 @@ export const AdminCartAndVkladPage = () => {
 			toast('Вы ввели что-то не то');
 		}
 	}
-
 	useClickOutside(menuRef, () => { //  функция для реализации закрытия списка по клику вне области
 		if (isOpen) setTimeout(() => setOpen(false), 50)
 		if (is2Open) setTimeout(() => set2Open(false), 50)
@@ -101,16 +95,16 @@ export const AdminCartAndVkladPage = () => {
 				button='Войти'
 			/>
 
-			<div className="mt-[100px] flex justify-evenly text-Melody text-[20px]">
+			<div className="2xl:mt-[240px] sm:mt-[480px] flex justify-evenly text-Melody text-[20px]">
 				<NavLink to={'/admincredit'}>Кредиты </NavLink>
 				<NavLink to={'/admincart'}>Вклады и карты</NavLink>
 			</div>
 
-			<div className="bg-Melody p-[1px] my-[13px] mt-[20px]" /> {/* Разделяющая линия */}
+			<div className="bg-Melody p-[1px] mt-[20px]" /> {/* Разделяющая линия */}
 
-			<div className='flex justify-between'>
+			<div className='sm:block 2xl:flex 2xl:justify-between'>
 				<ul className=''>
-					<div className='ml-[56px]'><Gaid maintext='Как создать карту?'
+					<div className='ml-[56px] sm:mt-[-50px]'><Gaid maintext='Как создать карту?'
 						text01='Введите данные клиента'
 						text02='Подтвердите создание'
 						text03='Сообщить клиенту'
@@ -133,7 +127,7 @@ export const AdminCartAndVkladPage = () => {
 						</li>
 						<li> 
 							<h1 className='text-[20px] ml-[30px] mb-[5px] mt-[20px]'>Если "Крелитная карта", то кредитный баланс</h1>
-							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+							<input className='w-[568px] h-[70px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="int"
 							value={balans} onChange={(e) => setBalans(e.target.value)} />  
 						</li>
 						<button type='submit' className={`mt-[30px] w-[258px] h-[82px] bg-Melody shadow-xxB rounded-[40px] text-Jerry flex justify-center items-center text-[24px]`}
@@ -142,7 +136,7 @@ export const AdminCartAndVkladPage = () => {
 				</ul>
 
 				<ul className=''>
-					<div className='ml-[56px]'><Gaid maintext='Как работать?'
+					<div className='ml-[56px] sm:mt-[-50px]'><Gaid maintext='Как работать?'
 						text01='Введите данные клиента'
 						text02='Подтвердите создание'
 						text03='Сообщить клиенту'

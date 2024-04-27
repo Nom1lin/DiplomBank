@@ -11,7 +11,7 @@ const PopUp = (props) => {
 
 	return (
 		<li>
-			<nav className='pr-[35px] cursor-pointer' onClick={() => setOpen(!isOpen)}>{props.spisok}</nav> {/* Список */}
+			<nav className='pr-[35px] cursor-pointer 2xl:flex  sm:hidden' onClick={() => setOpen(!isOpen)}>{props.spisok}</nav> {/* Список */}
 			<ul className={'absolute bg-Jerry rounded-[20px] p-[20px] mt-2 ' + `menu ${isOpen ? "active" : ""}`} ref={menuRef}> {/* список */}
 				<li className='text-[24px] font-medium pb-[16px] text-Melody'>{props.heading}</li>
 				<li className={`text-[16px] pb-[10px] text-Melody`}><NavLink to={props.silki[0]}>{props.body[0]}</NavLink> </li>

@@ -29,6 +29,18 @@ export const getAllCarts = createAsyncThunk('cart/getAllCarts', async () => {
 	}
 })
 
+export const deleteCart = createAsyncThunk(
+	'cart/deleteCredit',
+	async (cartId, { rejectWithValue }) => {
+		try {
+			const response = await axios.delete(`/cart/delete/${cartId}`);
+			return cartId;
+		} catch (error) {
+			return rejectWithValue(error.response.data);
+		}
+	}
+);
+
 const cartsSlice = createSlice({
 	name: 'cart',
 	initialState,
@@ -59,6 +71,9 @@ const cartsSlice = createSlice({
 			.addCase(getAllCarts.rejected, (state, action) => {
 				state.isLoading = false;
 			})
+			.addCase(deleteCart.fulfilled, (state, action) => {
+				state.cart = state.cart.filter((cart) => cart._id !== action.payload);
+			});
 	},
 });
 

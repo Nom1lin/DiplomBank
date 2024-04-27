@@ -9,7 +9,9 @@ const ZaiavkiTwo = (props) => {
 	const [tarif, setTarif] = useState('Тариф 1'); const [name, setName] = useState('');
 	const [fio, setFio] = useState(''); const [passport, setPassport] = useState('');
 	const [birth, setBirth] = useState(''); const [snilsinn, setSnilsinn] = useState('');
-	const [telephone, setTelephone] = useState(props.celi); const [email, setEmail] = useState(props.srok);
+	const [telephone, setTelephone] = useState(''); const [email, setEmail] = useState('');
+	const [voenik, setVoenik] = useState(''); const [staj, setStaj] = useState('');
+	const [work, setWork] = useState(''); 
 	const DateTime = new Date();
 	const dispatch = useDispatch()
 
@@ -21,17 +23,18 @@ const ZaiavkiTwo = (props) => {
 	const submitHandler = () => {
 		try {
 			if (
-				tarif.trim() === '' || name.trim() === '' || fio.trim() === '' || passport.trim() === '' || birth.trim() === '' || snilsinn.trim() === '' || telephone.trim() === '' || email.trim() === '' || !DateTime
+				tarif.trim() === '' || name.trim() === '' || fio.trim() === '' || passport.trim() === '' || birth.trim() === '' || snilsinn.trim() === '' || 
+				telephone.trim() === '' || email.trim() === '' || voenik.trim() === '' || staj.trim() === '' || work.trim() === '' || !DateTime
 			) {
 				toast('Вы не ввели одно из значений');
 			} else {
 				dispatch(
 					createStrahovanie({
-						tarif, name, fio, passport, birth, snilsinn, telephone, email, DateTime,
+						tarif, name, fio, passport, birth, snilsinn, telephone, email, voenik, staj, work, DateTime,
 					})
 				);
 				// Очищаем поля после создания вклада
-				setTarif(''); setName(''); setFio(''); setPassport(''); setBirth(''); setSnilsinn(''); setTelephone(''); setEmail('');
+				setTarif(''); setName(''); setFio(''); setPassport(''); setBirth(''); setSnilsinn(''); setTelephone(''); setEmail(''); setVoenik(''); setStaj(''); setWork(''); 
 				toast('Ваша заявка на рассмотрении');
 			}
 		} catch (error) {
@@ -40,66 +43,80 @@ const ZaiavkiTwo = (props) => {
 		}
 	}
 
-
 	return (
 		<form className="mt-[100px] text-Melody" onSubmit={(e) => e.preventDefault()}>
-			<span className="text-[40px]">{props.maintext}</span>
-			<div className="mt-[45px] w-[1180px] bg-Tom rounded-[40px] p-[56px] shadow-xxA">
-				<div className="flex justify-between">
+			<span className="2xl:text-[36px] sm:text-[32px]">{props.maintext}</span>
+			<div className="2xl:mt-[45px] sm:mt-[20px] 2xl:w-[1180px] sm:w-[100%] bg-Tom rounded-[40px] p-[56px] shadow-xxA">
+				<div className="2xl:flex justify-between sm:block">
 					<ul className=' '>
-						<li className='mb-[130px]'>
+						<li className='2xl:mb-[130px] sm:mb-[90px]'>
 							{/* Инпут 1*/}
-							<select className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' value={tarif} onChange={handleCartChange}>
+							<select className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' value={tarif} onChange={handleCartChange}>
 								<option value="Тариф 1">Тариф 1</option>
 								<option value="Тариф 2">Тариф 2</option>
 								<option value="Тариф 3">Тариф 3</option>
 							</select>
-							<h1 className='text-[20px] mt-[-100px] ml-[30px]'>Введите вид карты</h1>
+							<h1 className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>Введите вид карты</h1>
 						</li>
-						<div className='mb-[130px]'> {/* Инпут 2*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 2*/}
+							<input className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
 								value={fio} onChange={(e) => setFio(e.target.value)}
-							/></li>
-							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input12}</li>
+							/>
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input12}</li>
 						</div>
-						<div className='mb-[130px]'> {/* Инпут 3*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="date"
+						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 3*/}
+							<input className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="date"
 								value={birth} onChange={(e) => setBirth(e.target.value)}
-							/></li>
-							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input13}</li>
+							/>
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input13}</li>
 						</div>
-						<div className='mb-[130px]'> {/* Инпут 4*/}
-						<li className=''><InputMask className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]'
+						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 4*/}
+						<InputMask className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]'
 								type="telephone" mask="+7 (999) 999-99-99" value={telephone} onChange={(e) => setTelephone(e.target.value)}
-							/></li>
-							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input14}</li>
+							/>
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input14}</li>
+						</div>
+						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 5*/}
+							<InputMask className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+								mask="№ 9999999" value={voenik} onChange={(e) => setVoenik(e.target.value)} />
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input15}</li>
+						</div>
+						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 6*/}
+							<input className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+								value={work} onChange={(e) => setWork(e.target.value)} />
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input16}</li>
 						</div>
 					</ul>
 
 					<ul className=''>
-						<div className='mb-[130px]'> {/* Инпут 1*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 1*/}
+							<input className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
 								value={name} onChange={(e) => setName(e.target.value)}
-							/></li>
-							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input21}</li>
+							/>
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input21}</li>
 						</div>
-						<div className='mb-[130px]'> {/* Инпут 2*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
+						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 2*/}
+							<input className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
 								value={passport} onChange={(e) => setPassport(e.target.value)}
-							/></li>
-							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input22}</li>
+							/>
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input22}</li>
 						</div>
-						<div className='mb-[130px]'> {/* Инпут 3*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
+						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 3*/}
+							<input className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
 								value={snilsinn} onChange={(e) => setSnilsinn(e.target.value)}
-							/></li>
-							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input23}</li>
+							/>
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input23}</li>
 						</div>
-						<div className='mb-[130px]'> {/* Инпут 4*/}
-							<li className=''><input className='w-[500px] h-[99px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="email"
+						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 4*/}
+							<input className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="email"
 								value={email} onChange={(e) => setEmail(e.target.value)}
-							/></li>
-							<li className='text-[20px] mt-[-100px] ml-[30px]'>{props.input24}</li>
+							/>
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input24}</li>
+						</div>
+						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 5*/}
+							<input className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
+								value={staj} onChange={(e) => setStaj(e.target.value)} />
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input25}</li>
 						</div>
 					</ul>
 				</div>

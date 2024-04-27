@@ -1,11 +1,8 @@
 import React from 'react'
-import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
-import Face from '../components/Face'
-import Logo from '../img/Main/PngMain.png'
+import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps'
 
 import MarkerBlack from '../img/MarkerBlack.png'
 import MarkerOrange from '../img/MarkerOrange.png'
-
 
 export const KartaPage = () => {
 	const placemarkOptionsOne = { iconColor: '#E07445' };
@@ -21,7 +18,7 @@ export const KartaPage = () => {
 					</div>
 
 
-					<div className="w-[1420px] h-[620px] rounded-[40px] bg-Melody flex justify-center items-center mt-[105px]">
+					<div className="w-[100%] h-[620px] rounded-[40px] bg-Melody flex justify-center items-center mt-[100px] ">
 						<Map className='w-[1360px] h-[560px]  ' defaultState={{ center: [44.95995159149692,34.10552848740453], zoom: 14 }}>
 							<Placemark geometry={[44.98284262361713, 34.08515315356711]} options={placemarkOptionsOne} />
 							<Placemark geometry={[44.98357359091058, 34.08686976733663]} options={placemarkOptionsTwo} />

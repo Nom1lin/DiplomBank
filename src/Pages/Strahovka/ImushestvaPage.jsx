@@ -18,24 +18,24 @@ export const ImushestvaPage = () => {
 				img={Main}
 				button='Войти'
 			/>
-			<div className="bg-Melody p-[1px] mt-[120px] mb-[50px]" /> {/* Разделяющая линия */}
+			<div className="bg-Melody p-[1px] 2xl:mt-[260px] sm:mt-[430px] mb-[50px]" /> {/* Разделяющая линия */}
 
-			<div className="mt-[50px] text-Melody text-[20px]"> {/* Раздел правил */}
-				<h1 className='text-[40px] mb-[40px]'>Защита распространяется на такие события как:</h1>
-				<h1 className='mb-[35px]'>Пожар, удар молнии, взрыв</h1>
-				<h1 className='mb-[35px]'>Внешние воздействие</h1>
-				<h1 className='mb-[35px]'>Залив, стихийные действия</h1>
-				<h1 className='mb-[105px]'>Противоправные действия третьих лиц</h1>
+			<div className="mt-[50px] text-Melody 2xl:text-[20px] sm:text-[16px]"> {/* Раздел правил */}
+				<h1 className='2xl:text-[36px] sm:text-[32px] mb-[40px]'>Защита распространяется на такие события как:</h1>
+				<h1 className='mb-[30px]'>Пожар, удар молнии, взрыв</h1>
+				<h1 className='mb-[30px]'>Внешние воздействие</h1>
+				<h1 className='mb-[30px]'>Залив, стихийные действия</h1>
+				<h1 className='2xl:mb-[100px] sm:mb-[60px]'>Противоправные действия третьих лиц</h1>
 
-				<h1 className='text-[40px] mb-[40px] '>Страхуется:</h1>
-				<h1 className='mb-[35px]'>Внутренняя отделка, инженерные сети и оборудование (покрытия поверхностей стен, пола, потолка, перекрытий; двери; оконные блоки)</h1>
-				<h1 className='mb-[35px]'>Движимое имущество</h1>
-				<h1 className='mb-[35px]'>Гражданская ответственность перед третьими лицами</h1>
+				<h1 className='2xl:text-[36px] sm:text-[32px] mb-[40px] '>Страхуется:</h1>
+				<h1 className='mb-[30px]'>Внутренняя отделка, инженерные сети и оборудование (покрытия поверхностей стен, пола, потолка, перекрытий; двери; оконные блоки)</h1>
+				<h1 className='mb-[30px]'>Движимое имущество</h1>
+				<h1 className='mb-[30px]'>Гражданская ответственность перед третьими лицами</h1>
 			</div>
 
 			<div className="mt-[100px] flex justify-center text-Melody"> {/* Раздел тарифов */}
 				<div className='bg-Tom w-[1179px] h-[540px] rounded-[40px] shadow-xxA p-[40px]'>
-					<h1 className='text-[40px] mb-[56px]'>Размер страховой выплаты</h1>
+					<h1 className='2xl:text-[40px] sm:text-[32px] mb-[56px]'>Размер страховой выплаты</h1>
 					<div className="flex justify-between">
 						<ul>
 							<li className="mb-[68px]"> </li>
@@ -71,7 +71,9 @@ export const ImushestvaPage = () => {
 				input12='ФИО' input22='Паспортные данные'
 				input13='Дата рождения' input23='СНИЛС И ИНН'
 				input14='Мобильный телефон' input24='Электронная почта'
-				miniPravila11='от 30 000 до 6 000 000 рублей' miniPravila21='Заглушка'
+				input15='Номер военного билета' input25='Стаж'
+				input16='Название работы' 
+
 			/>
 		</>
 	)

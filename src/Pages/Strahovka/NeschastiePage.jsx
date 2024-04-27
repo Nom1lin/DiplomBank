@@ -18,31 +18,31 @@ export const NeschastiePage = () => {
 				img={Main}
 				button='Войти'
 			/>
-			<div className="bg-Melody p-[1px] mt-[120px] mb-[50px]" /> {/* Разделяющая линия */}
+			<div className="bg-Melody p-[1px] 2xl:mt-[260px] sm:mt-[420px] mb-[50px]" /> {/* Разделяющая линия */}
 
-			<div className="mt-[50px] text-Melody flex justify-between text-[20px]"> {/* Раздел правил */}
+			<div className="mt-[50px] text-Melody 2xl:flex 2xl:justify-between sm:block 2xl:text-[20px] sm:text-[16px]"> {/* Раздел правил */}
 				<ul>
-					<li className='text-[40px] mb-[60px]'>Условия программы</li>
-					<li className='mb-[35px]'>Покупатель - физ. лицо, достигший совершенолетия</li>
-					<li className='mb-[35px]'>Возраст застрахователя - от 18 до 80 лет</li>
+					<li className='2xl:text-[36px] sm:text-[32px] 2xl:mb-[60px] sm:mb-[40px]'>Условия программы</li>
+					<li className='mb-[30px]'>Покупатель - физ. лицо, достигший совершенолетия</li>
+					<li className='2xl:mb-[35px] sm:mb-[60px]'>Возраст застрахователя - от 18 до 80 лет</li>
 				</ul>
 				<ul>
-					<li className='text-[40px] mb-[60px]'>Случаи дейсвия страховки</li>
-					<li className='mb-[35px]'>Смерть и инвалидность 1, 2 и 3 группы в результате несчастного случая</li>
-					<li className='mb-[35px]'>Телесные повреждения в результате несчастного случая</li>
-					<li className='mb-[35px]'>Переломы и ожоги в результате несчастного случая</li>
+					<li className='2xl:text-[36px] sm:text-[32px] 2xl:mb-[60px] sm:mb-[40px]'>Случаи дейсвия страховки</li>
+					<li className='mb-[30px]'>Смерть и инвалидность 1, 2 и 3 группы в результате несчастного случая</li>
+					<li className='mb-[30px]'>Телесные повреждения в результате несчастного случая</li>
+					<li className='mb-[30px]'>Переломы и ожоги в результате несчастного случая</li>
 				</ul>
 			</div>
 
-			<div className="mt-[100px] flex justify-center text-Melody"> {/* Раздел тарифов */}
-				<div className='bg-Tom w-[1179px] h-[540px] rounded-[40px] shadow-xxA p-[40px]'>
-					<h1 className='text-[40px] mb-[56px]'>Размер страховой выплаты по рискам (вред здоровью)</h1>
+			<div className="2xl:mt-[100px] sm:mt-[80px] flex justify-center text-Melody"> {/* Раздел тарифов */}
+				<div className='bg-Tom w-[1179px] h-[540px] rounded-[40px] shadow-xxA 2xl:p-[40px] sm:p-[20px]'>
+					<h1 className='2xl:text-[40px] sm:text-[32px] mb-[56px]'>Размер страховой выплаты по рискам (вред здоровью)</h1>
 					<div className="flex justify-between">
 						<ul>
-							<li className="mb-[68px]"> </li>
-							<li className="text-[34px] mb-[63px]">Тариф 1</li>
-							<li className="text-[34px] mb-[63px]">Тариф 2</li>
-							<li className="text-[34px] ">Тариф 3</li>
+							<li className="mb-[72px]"> </li>
+							<li className="2xl:text-[34px] sm:text-[26px] 2xl:mb-[63px] sm:mb-[73px] ">Тариф 1</li>
+							<li className="2xl:text-[34px] sm:text-[26px] 2xl:mb-[63px] sm:mb-[74px]">Тариф 2</li>
+							<li className="2xl:text-[34px] sm:text-[26px]">Тариф 3</li>
 						</ul>
 						<ul>
 							<li className="mb-[56px]">Размер страховой выплаты</li>
@@ -72,7 +72,9 @@ export const NeschastiePage = () => {
 				input12='ФИО' input22='Паспортные данные'
 				input13='Дата рождения' input23='СНИЛС И ИНН'
 				input14='Мобильный телефон' input24='Электронная почта'
-				miniPravila11='от 30 000 до 6 000 000 рублей' miniPravila21='Заглушка'
+				input15='Номер военного билета' input25='Стаж'
+				input16='Название работы' 
+
 			/>
 		</>
 	)

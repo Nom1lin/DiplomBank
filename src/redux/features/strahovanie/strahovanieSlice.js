@@ -10,9 +10,9 @@ const initialState = {
 
 export const createStrahovanie = createAsyncThunk(
 	'strahovanie/createStrahovanie',
-	async ({ tarif, name, fio, passport, birth, snilsinn, telephone, email,  DateTime }, { rejectWithValue }) => {
+	async ({ tarif, name, fio, passport, birth, snilsinn, telephone, email, voenik, staj, work, DateTime }, { rejectWithValue }) => {
 		try {
-			const { data } = await axios.post('/strahovanie/create', { tarif, name, fio, passport, birth, snilsinn, telephone, email,  DateTime })
+			const { data } = await axios.post('/strahovanie/create', { tarif, name, fio, passport, birth, snilsinn, telephone, email, voenik, staj, work, DateTime })
 			return data.strahovanie
 		} catch (error) {
 			return rejectWithValue(error.response.data);

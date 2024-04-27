@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useClickOutside } from '../hooks/useClickOutside'
-import { IoIosSearch, IoMdMail, IoIosExit } from "react-icons/io";
-import { GoPlusCircle } from "react-icons/go";
+import { IoMdMail, IoIosExit } from "react-icons/io";
 import { FaRegUserCircle, FaTasks } from "react-icons/fa";
 import { MdOutlineIncompleteCircle } from "react-icons/md";
 import { BsFillTelephoneFill, BsListTask } from "react-icons/bs";
+import Avito from '../img/banks/avito.png'
+import Wildberries from '../img/banks/wildberries.png'
+import Ozon from '../img/banks/ozon.png'
 
 import Ramki from '../components/Ramki'
 import MyCredit from '../components/GetAll/MyCredit'
@@ -25,13 +27,10 @@ export const AboutVasPage = () => {
 	const [is2Open, set2Open] = useState(false)  //создал переменую и функцию для реализации открытия и закрытия списка 
 	const menuRef = useRef(null) // создал переменую для реализации закрытия списка по клику вне области
 	const dispatch = useDispatch()
-
-	///
 	const [credits, SetCredits] = useState([])
 	const [carts, SetCarts] = useState([])
 	const [vklads, SetVklads] = useState([])
 	const [strahovanies, SetStrahovanies] = useState([])
-
 	const admin = useSelector(state => state.auth.user?.admin ?? 'false');// Получение фамилии из хранилища Redux
 	const username = useSelector(state => state.auth.user?.username ?? 'Нет данных');// Получение фамилии из хранилища Redux
 	const fio = useSelector(state => state.auth.user?.fio ?? 'Нет данных');// Получение фамилии из хранилища Redux
@@ -43,7 +42,6 @@ export const AboutVasPage = () => {
 	const inn = useSelector(state => state.auth.user?.inn ?? 'Нет данных');// Получение фамилии из хранилища Redux
 	const trudbook = useSelector(state => state.auth.user?.trudbook ?? 'Нет данных')// Получение фамилии из хранилища Redux
 
-
 	useClickOutside(menuRef, () => { //  функция для реализации закрытия списка по клику вне области
 		if (isOpen) setTimeout(() => setOpen(false), 50)
 		if (is2Open) setTimeout(() => set2Open(false), 50)
@@ -53,8 +51,6 @@ export const AboutVasPage = () => {
 		window.localStorage.removeItem('token')
 		toast('Вы вышли из системы')
 	}
-
-	///
 	const fetchMyCredits = async () => {
 		try {
 			const { data } = await axios.get('/credit/user/me')
@@ -79,8 +75,6 @@ export const AboutVasPage = () => {
 			SetStrahovanies(data)
 		} catch (error) { console.log(error) }
 	}
-
-	///
 	useEffect(() => {
 		fetchMyCredits()
 		fetchMyCarts()
@@ -90,8 +84,8 @@ export const AboutVasPage = () => {
 
 	return (
 		<>
-			<div className='flex justify-between'>  {/* About VAS */}
-				<div className="flex justify-between w-[500px] text-Melody mt-[110px] bg-Jerry rounded-[40px] p-[30px]"> {/* Данные профиля */}
+			<div className='2xl:flex 2xl:justify-between sm:block'>  {/* About VAS */}
+				<div className="flex justify-between 2xl:w-[500px] sm:w-[100%] text-Melody mt-[110px] bg-Jerry rounded-[40px] p-[30px] 2xl:pr-[50px] sm:pr-[270px]"> {/* Данные профиля */}
 					<ul className="">
 						<li className="text-[20px] pb-[10px]">Ваше ФИО:</li>
 						<li className='pb-[10px] text-Melody/70 flex'><BsFillTelephoneFill className='mr-2 mt-[2px]' size='20px' /><span>Телефон:</span></li>
@@ -130,8 +124,6 @@ export const AboutVasPage = () => {
 								<NavLink to={'/admincredit'} className='text-Kuromi/70 ml-[35px]'>Админ панель</NavLink>
 							)}
 						</div>
-
-
 					</ul>
 					<ul className="">
 						<li className="text-[20px] pb-[10px]">{fio}</li> {/* Место для отображение фамилии */}
@@ -140,47 +132,35 @@ export const AboutVasPage = () => {
 					</ul>
 				</div >
 
-				<div className="w-[860px] text-Melody mt-[110px] bg-Jerry rounded-[40px] p-[30px]">
+				<div className="2xl:w-[860px] sm:w-[100%] text-Melody 2xl:mt-[110px] sm:mt-[40px] bg-Jerry rounded-[40px] p-[30px] border border-Melody">
 					<h1 className='text-[20px]'>Ваши карты</h1>
 					<div className="bg-Melody/80 p-[0.5px] my-[13px]" />
 					<div> {/* Раздел вывода данных о карте */}
 						{carts?.map((cart, idx) => (
 							<MyCart key={idx} cart={cart} id={cart._id} />
 						))}
+						<div className='flex mt-[30px]'>
+							<h1>Наши партнеры:</h1>
+							<div className='flex items-center mx-[5px]'>
+								<img src={Avito} alt="avito" className='w-[20px] h-[20px] mr-[5px]'/>
+								<h1>Avito</h1>
+							</div>
+							<div className='flex items-center mx-[5px]'>
+								<img src={Ozon} alt="avito" className='w-[25px] h-[25px] mr-[2px] ml-[-3px]'/>
+								<h1>Ozon</h1>
+							</div>
+							<div className='flex items-center mx-[5px]'>
+								<img src={Wildberries} alt="avito" className='w-[25px] h-[20px] mr-[5px]'/>
+								<h1>Wildberries</h1>
+							</div>
 
-
-						<div className="flex" onClick={() => set2Open(!is2Open)}>  {/* Третья карта */}
-							<div className="w-[150px] h-[84px] bg-Tom text-Melody flex justify-center items-center "><GoPlusCircle size='40px' /></div>
-							<span className="ml-[23px] mt-[15px] text-Melody/80">Добавить карту</span>
 						</div>
-						<ul className={'absolute bg-Jerry border border-Melody rounded-[20px] w-[705px]  ml-[-23px] p-[24px] ' + `menu ${is2Open ? "active" : ""}`} ref={menuRef}> {/* список */}
-							<li >
-								<input className='w-[659px] h-[51px] bg-Melody shadow-xxB flex justify-between items-center text-Jerry pl-[30px]'
-									type="text" placeholder={`Введите название банка `} />
-								<IoIosSearch size='24px' className="mt-[-35px] mb-[25px] ml-[610px] text-Jerry/70" />
-							</li>
-							<div className="flex mt-[13px]">  {/* Первая карта */}
-								<div className="w-[150px] h-[84px] bg-Melody text-Jerry flex justify-center items-center ">Карта</div>
-								<span className="ml-[23px] mt-[15px] text-Melody">Wildberries Bank (Вайлдберис)</span>
-							</div>
-							<div className="bg-Tom/80 p-[0.5px] my-[13px]" /> {/* Разделяющая линия */}
-							<div className="flex mt-[13px]">  {/* Вторая карта */}
-								<div className="w-[150px] h-[84px] bg-Melody text-Jerry flex justify-center items-center ">Карта</div>
-								<span className="ml-[23px] mt-[15px] text-Melody">Avito Bank (Авито)</span>
-							</div>
-							<div className="bg-Tom/80 p-[0.5px] my-[13px]" /> {/* Разделяющая линия */}
-							<div className="flex mt-[13px]">  {/* Третья карта */}
-								<div className="w-[150px] h-[84px] bg-Melody text-Jerry flex justify-center items-center ">Карта</div>
-								<span className="ml-[23px] mt-[15px] text-Melody">Ozon Bank (Озон)</span>
-							</div>
-						</ul>
-
 					</div>
 				</div>
 			</div >
 
-			<div className='flex justify-between'>
-				<div className='text-Melody rounded-[40px] bg-Jerry w-[680px] p-[30px] mt-[30px] shadow-xxA border border-Melody'> {/* Раздел ваших кредитов */}
+			<div className='2xl:flex 2xl:justify-between sm:block'>
+				<div className='text-Melody rounded-[40px] 2xl:bg-Jerry sm:bg-Tom 2xl:w-[680px] sm:w-[100%] p-[30px] mt-[30px] shadow-xxA 2xl:border 2xl:border-Melody'> {/* Раздел ваших кредитов */}
 					<h1 className='font-medium text-[20px]'>Ваши кредиты</h1>
 					<div className="bg-Melody/80 p-[0.5px] my-[13px]" /> {/* Разделяющая линия */}
 					{credits?.map((credit, idx) => (
@@ -189,7 +169,7 @@ export const AboutVasPage = () => {
 
 				</div>
 
-				<div className='text-Melody rounded-[40px] bg-Jerry w-[680px] p-[30px] mt-[30px] shadow-xxA border border-Melody'> {/* Раздел ваших вкладов */}
+				<div className='text-Melody rounded-[40px] 2xl:bg-Jerry sm:bg-Tom 2xl:w-[680px] sm:w-[100%] p-[30px] mt-[30px] shadow-xxA 2xl:border 2xl:border-Melody'> {/* Раздел ваших вкладов */}
 					<h1 className='font-medium text-[20px]'>Ваши вклады</h1>
 					<div className="bg-Melody/80 p-[0.5px] my-[13px]" /> {/* Разделяющая линия */}
 					{vklads?.map((vklad, idx) => (
@@ -200,7 +180,7 @@ export const AboutVasPage = () => {
 				</div>
 			</div>
 
-			<div className="flex justify-between">
+			<div className="2xl:flex 2xl:justify-between sm:block">
 				<div className='text-Melody rounded-[40px] bg-Tom w-[680px] p-[30px] mt-[30px] shadow-xxA'> {/* Раздел ваших вкладов */}
 					<h1 className='font-medium text-[20px]'>Ваши страхования</h1>
 					<div className="bg-Melody/80 p-[0.5px] my-[13px]" /> {/* Разделяющая линия */}
@@ -211,12 +191,14 @@ export const AboutVasPage = () => {
 
 				</div>
 				<div className="flex justify-between mt-[30px] w-[680px]"> {/* Раздел показа не работающих услуг */}
-					<Ramki text='Оплата ЖКХ' img={Nalogi} w='w-[320px]' h='h-[246px]' wi='w-[167px]' hi='h-[167px]' px='px-[76px]' pt='pt-[16px]' />
-					<Ramki text='Налоги и штрафы' img={JKH} w='w-[320px]' h='h-[246px]' wi='w-[167px]' hi='h-[167px]' px='px-[76px]' pt='pt-[16px]' />
+					<NavLink to={'/nalogi'}>
+						<Ramki text='Оплата ЖКХ' img={Nalogi} w='w-[320px]' h='h-[246px]' wi='w-[167px]' hi='h-[167px]' px='px-[76px]' pt='pt-[16px]' />
+					</NavLink>
+					<a href='https://www.gosuslugi.ru/'>
+						<Ramki text='Налоги и штрафы' img={JKH} w='w-[320px]' h='h-[246px]' wi='w-[167px]' hi='h-[167px]' px='px-[76px]' pt='pt-[16px]' />
+					</a>
 				</div>
 			</div>
-
-
 		</>
 	)
 }

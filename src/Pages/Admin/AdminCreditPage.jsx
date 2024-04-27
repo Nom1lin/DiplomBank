@@ -29,25 +29,24 @@ export const AdminCreditPage = () => {
 				button='Войти'
 			/>
 
-			<div className="mt-[100px] flex justify-evenly text-Melody text-[20px]">
+			<div className="2xl:mt-[240px] sm:mt-[480px] flex justify-evenly text-Melody text-[20px]">
 				<NavLink to={'/admincredit'}>Кредиты </NavLink>
 				<NavLink to={'/admincart'}>Вклады и карты</NavLink>
 			</div>
 
-			<div className="bg-Melody p-[1px] my-[13px] mt-[20px]" /> {/* Разделяющая линия */}
+			<div className="bg-Melody p-[1px] mb-[-50px] mt-[20px]" /> {/* Разделяющая линия */}
 
 			<ZaiavkiAdmin maintext='Онлайн заявка на кредит'
-				inputopacity=' mb-[-300px] opacity-0' inputopacityPlan2=' mb-[130px] opacity-1'
 				input11='Сумма кредита' input21='Срок кредита'
 				input12='Цели кредита' input22='ФИО'
 				input13='Паспортные данные' input23='Дата рождения'
-				input14='СНИЛС И ИНН' input24='Трудовая книжка'
-				input15='Мобильный телефон' input25='Электронная почта'
-				miniPravila11='от 0 до 6 000 000 рублей' miniPravila21='от 0 до 100 месяцев'
+				input14='Мобильный телефон' input24='Электронная почта'
+				input15='СНИЛС И ИНН ' input25='Номер военного билета'
+				input16='Стаж работы на последнем месте' input26='Название вашей работы'
 
+				vid='Кредит на любые цели'  stavka='0.156'
 				inputmin1='0' inputmin2='1'
 				inputmax1='6000000' inputmax2='100'
-				vid='Кредит на любые цели'
 			/>
 
 			<Gaid maintext='Как работать?'
@@ -57,7 +56,7 @@ export const AdminCreditPage = () => {
 			/> {/* Раздел Как получить кредит */}
 
 			<div className="mt-[100px] text-[16px]">
-				<h1 className='text-Melody text-[40px] mb-[40px]'>Заявки на кредит</h1>
+				<h1 className='text-Melody 2xl:text-[36px] sm:text-[32px] mb-[40px]'>Заявки на кредит</h1>
 				{
 					credits?.map((credit, idx) => (
 					<Credit key={idx} credit={credit} />

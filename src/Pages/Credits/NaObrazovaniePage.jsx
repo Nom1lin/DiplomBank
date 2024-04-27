@@ -22,7 +22,7 @@ export const NaObrazovaniePage = () => {
 				img={Main}
 				button='Войти'
 			/>
-			<div className="bg-Melody p-[1px] mt-[120px] mb-[50px] " /> {/* Разделяющая линия */}
+			<div className="bg-Melody p-[1px] 2xl:mt-[260px] sm:mt-[380px] mb-[50px]" />{/* Разделяющая линия */}
 
 			<Raschet maintext='Рассчитайте кредит на образование'
 				inputtext1='Желаемая сумма'
@@ -35,9 +35,11 @@ export const NaObrazovaniePage = () => {
 				Chislominitext3='Общая сумма выплат' stavka='0.10'
 			/>
 
-			<div className="mt-[100px] flex justify-between"> {/* Раздел преимущества */}
+			<div className="mt-[100px] 2xl:flex 2xl:justify-between"> {/* Раздел преимущества */}
 				<Ramki text='Возможность получить кредит не приходя в офис' img={Image1} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
-				<Ramki text='Без справок о доходах и поручителей' img={Image2} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
+				<div className='2xl:mt-0 sm:mt-[30px]'>
+					<Ramki text='Без справок о доходах и поручителей' img={Image2} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
+				</div>
 			</div>
 
 			<Gaid maintext='Как получить кредит'

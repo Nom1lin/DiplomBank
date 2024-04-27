@@ -19,7 +19,7 @@ export const MaxPage = () => {
 				img={Main}
 				button='Войти'
 			/>
-			<div className="bg-Melody p-[1px] mt-[120px] mb-[50px]" /> {/* Разделяющая линия */}
+			<div className="bg-Melody p-[1px] 2xl:mt-[260px] sm:mt-[430px] mb-[50px]" /> {/* Разделяющая линия */}
 			
 			<RaschetTwo maintext='Рассчитайте ваш вклад'
 				inputtext1='Сумма вклада'
@@ -33,8 +33,8 @@ export const MaxPage = () => {
 			/>
 
 			<div className="text-Melody text-[20px] mt-[100px]">
-				<span className="text-[32px]">Как открыть вклад</span>
-				<div className="bg-Tom w-[1180px] h-[99px] rounded-[40px] pl-[20px] mt-[50px] flex items-center ">Созвонитесь с нашим менеджером +7 978 504-65-69</div>
+				<span className="2xl:text-[36px] sm:text-[32px]">Как открыть вклад</span>
+				<div className="bg-Tom 2xl:w-[1180px] sm:w-[100%] h-[99px] rounded-[40px] pl-[20px] mt-[30px] flex items-center ">Созвонитесь с нашим менеджером +7 978 504-65-69</div>
 			</div>
 
 		</>

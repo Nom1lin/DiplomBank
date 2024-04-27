@@ -22,7 +22,7 @@ export const CreditBusinessPage = () => {
 				img={Main}
 				button='Войти'
 			/>
-			<div className="bg-Melody p-[1px] mt-[120px]" /> {/* Разделяющая линия */}
+			<div className="bg-Melody p-[1px] 2xl:mt-[260px] sm:mt-[380px] mb-[50px]" /> {/* Разделяющая линия */}
 			<div className="mt-[-50px]">
 				<Gaid maintext='Как получить кредит'
 					text01='Зарегистрируйте бизнес'
@@ -32,11 +32,13 @@ export const CreditBusinessPage = () => {
 
 			</div>
 
-			<div className="mt-[100px] flex justify-between"> {/* Раздел преимущества */}
+			<div className="mt-[100px] 2xl:flex 2xl:justify-between"> {/* Раздел преимущества */}
 				<Ramki text='Одобрение - от 3 часов, выдача - до 1 дня' img={Image1} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
+				<div className='2xl:mt-0 sm:mt-[30px]'>
 				<Ramki text='Без скрытых комиссий' img={Image2} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
+				</div>
 			</div>
-			<div className="mt-[25px] flex justify-between"> {/* Раздел преимущества */}
+			<div className="sm:hidden mt-[25px] 2xl:flex 2xl:justify-between"> {/* Раздел преимущества */}
 				<Ramki text='Простое оформление с минимальным количеством документов' img={Image3} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
 				<Ramki text='До 10 млн рублей по паспорту' img={Image4} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
 			</div>
