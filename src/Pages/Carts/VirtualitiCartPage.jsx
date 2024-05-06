@@ -34,13 +34,13 @@ export const VirtualitiCartPage = () => {
 
 			<div className="mt-[100px] 2xl:flex 2xl:justify-between"> {/* Раздел преимущества */}
 				<Ramki text='Дистанционное оформление' img={Image1} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
-				<div className='sm:mt-[30px]'>
+				<div className='2xl:mt-0 sm:mt-[30px]'>
 					<Ramki text='Безопасное оформление' img={Image2} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
 				</div>
 			</div>
 			<div className="sm:mt-[30px] 2xl:flex 2xl:justify-between"> {/* Раздел преимущества */}
 				<Ramki text='Полное использование карты' img={Image3} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
-				<div className='sm:mt-[30px]'>
+				<div className='2xl:mt-0 sm:mt-[30px]'>
 					<Ramki text='Бесплатное оформление и обслуживание' img={Image4} w='w-[690px]' h='h-[652px]' wi='w-[556px]' hi='h-[477px]' px='px-[70px] p-[75px]' pt='pt-[40px]' />
 				</div>
 			</div>

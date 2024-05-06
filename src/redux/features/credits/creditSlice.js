@@ -30,7 +30,6 @@ export const getAllСredits = createAsyncThunk('credit/getAllСredits', async ()
 	}
 });
 
-//
 export const deleteCredit = createAsyncThunk(
 	'credit/deleteCredit',
 	async (creditId, { rejectWithValue }) => {
@@ -42,7 +41,6 @@ export const deleteCredit = createAsyncThunk(
 		}
 	}
 );
-//
 
 export const creditSlice = createSlice({
 	name: 'credit',

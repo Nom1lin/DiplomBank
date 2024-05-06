@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../../utils/axios';
 
 const initialState = {
-	cart: [],
+	carts: [],
 	isLoading: false,
 	error: null,
 };
@@ -30,7 +30,7 @@ export const getAllCarts = createAsyncThunk('cart/getAllCarts', async () => {
 })
 
 export const deleteCart = createAsyncThunk(
-	'cart/deleteCredit',
+	'cart/deleteCart',
 	async (cartId, { rejectWithValue }) => {
 		try {
 			const response = await axios.delete(`/cart/delete/${cartId}`);
@@ -42,7 +42,7 @@ export const deleteCart = createAsyncThunk(
 );
 
 const cartsSlice = createSlice({
-	name: 'cart',
+	name: 'carts',
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {
@@ -54,7 +54,7 @@ const cartsSlice = createSlice({
 			})
 			.addCase(createCart.fulfilled, (state, action) => {
 				state.isLoading = false;
-				state.cart.push(action.payload);
+				state.carts.push(action.payload);
 			})
 			.addCase(createCart.rejected, (state, action) => {
 				state.isLoading = false;
@@ -66,13 +66,14 @@ const cartsSlice = createSlice({
 			})
 			.addCase(getAllCarts.fulfilled, (state, action) => {
 				state.isLoading = false;
-				state.cart = action.payload.carts;
+				state.carts = action.payload.carts;
 			})
 			.addCase(getAllCarts.rejected, (state, action) => {
 				state.isLoading = false;
 			})
+			//
 			.addCase(deleteCart.fulfilled, (state, action) => {
-				state.cart = state.cart.filter((cart) => cart._id !== action.payload);
+				state.carts = state.carts.filter((cart) => cart._id !== action.payload);
 			});
 	},
 });

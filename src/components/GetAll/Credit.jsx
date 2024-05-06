@@ -42,7 +42,7 @@ const Credit = ({ credit }) => {
 			<h1 className='flex justify-end' onClick={() => setOpen(!isOpen)}>
 				{isOpen ? "Скрыть" : "Раскрыть"}
 			</h1>
-			<ul className={'absolute bg-Tom px-[30px] pb-[30px] w-[93%] ml-[-30px] ' + `menu ${isOpen ? "active" : ""}`} ref={menuRef}> {/* список */}
+			<ul className={'absolute bg-Tom px-[30px] pb-[30px] 2xl:w-[1403px] sm:w-[93%] ml-[-30px] ' + `menu ${isOpen ? "active" : ""}`} ref={menuRef}> {/* список */}
 				<h1 className='text-Melody/70 mb-2'>Логин клиента: {credit.client}</h1>
 				<h1 className='text-Melody/70 mb-2'>Цель крелита: {credit.value12}</h1>
 				<h1 className='text-Melody/70 mb-2'>Паспортные данные: {credit.value13}</h1>
