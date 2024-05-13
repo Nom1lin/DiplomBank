@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { checkIsAuth } from '../../redux/features/auth/authSlice'
 import { SlSocialVkontakte } from "react-icons/sl";
-import { FaTelegramPlane, FaOdnoklassniki, FaInstagram, FaFacebookF, FaWindows, FaApple } from "react-icons/fa";
+import { FaTelegramPlane, FaOdnoklassniki, FaWindows, FaApple } from "react-icons/fa";
 import { BsAndroid2 } from "react-icons/bs";
 
 export const Buttom = () => {
@@ -23,7 +23,7 @@ export const Buttom = () => {
 								<li className='text-[16px] mb-[17px]'>Руководство</li>
 								<li className='text-[16px] mb-[17px]'>Реквизиты</li>
 								<li className='text-[16px]'>
-									<NavLink to={'/aboutme'}>О разработчикея</NavLink></li>
+									<NavLink to={'/aboutme'}>О разработчике</NavLink></li>
 							</ul>
 							<ul className="text-Melody"> {/* Вторая группа*/}
 								<li className='text-[26px] mb-[22px]'>Наши соц. сети</li>

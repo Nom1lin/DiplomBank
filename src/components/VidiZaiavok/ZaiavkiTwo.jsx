@@ -9,7 +9,7 @@ const ZaiavkiTwo = (props) => {
 	const [tarif, setTarif] = useState('Тариф 1'); const [name, setName] = useState('');
 	const [fio, setFio] = useState(''); const [passport, setPassport] = useState('');
 	const [birth, setBirth] = useState(''); const [snilsinn, setSnilsinn] = useState('');
-	const [telephone, setTelephone] = useState(''); const [email, setEmail] = useState('');
+	const [telephone, setTelephone] = useState(''); const [email, setEmail] = useState('@mail.ru');
 	const [voenik, setVoenik] = useState(''); const [staj, setStaj] = useState('');
 	const [work, setWork] = useState(''); 
 	const DateTime = new Date();
@@ -34,7 +34,7 @@ const ZaiavkiTwo = (props) => {
 					})
 				);
 				// Очищаем поля после создания вклада
-				setTarif(''); setName(''); setFio(''); setPassport(''); setBirth(''); setSnilsinn(''); setTelephone(''); setEmail(''); setVoenik(''); setStaj(''); setWork(''); 
+				setTarif(''); setName(''); setFio(''); setPassport(''); setBirth(''); setSnilsinn(''); setTelephone(''); setEmail('@mail.ru'); setVoenik(''); setStaj(''); setWork(''); 
 				toast('Ваша заявка на рассмотрении');
 			}
 		} catch (error) {
@@ -96,17 +96,17 @@ const ZaiavkiTwo = (props) => {
 							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input21}</li>
 						</div>
 						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 2*/}
-							<input className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
-								value={passport} onChange={(e) => setPassport(e.target.value)}
-							/>
-							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input22}</li>
+							<InputMask className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="string"
+								mask="99 99 999999" value={passport} onChange={(e) => setPassport(e.target.value)} />
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-85px] ml-[30px]'>{props.input22}</li>
 						</div>
-						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 3*/}
-							<input className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="number"
-								value={snilsinn} onChange={(e) => setSnilsinn(e.target.value)}
+						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 5*/}
+							<InputMask className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="text"
+								mask="999-999-999 99,  9|9|9|9|9|9|9|9|9|9|9|9" value={snilsinn} onChange={(e) => setSnilsinn(e.target.value)}
 							/>
-							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-88px] ml-[30px]'>{props.input23}</li>
+							<li className='text-[20px] 2xl:mt-[-100px] sm:mt-[-85px] ml-[30px]'>{props.input23}</li>
 						</div>
+
 						<div className='2xl:mb-[130px] sm:mb-[90px]'> {/* Инпут 4*/}
 							<input className='2xl:w-[500px] 2xl:h-[99px] sm:w-[100%] sm:h-[85px] bg-Jerry shadow-xxB rounded-[40px] pl-[30px] text-[24px]' type="email"
 								value={email} onChange={(e) => setEmail(e.target.value)}
