@@ -10,6 +10,7 @@ import { AboutMePage } from './Pages/AboutMePage'
 import { QuestionsPage } from './Pages/QuestionsPage'
 import { AboutVasPage } from './Pages/AboutVasPage.jsx'
 import { NalogiPage } from './Pages/NalogiPage.jsx'
+import { FeedBackPage } from './Pages/FeedBackPage.jsx'
 
 import { AdminCreditPage } from './Pages/Admin/AdminCreditPage.jsx'
 import { AdminCartAndVkladPage } from './Pages/Admin/AdminCartAndVkladPage.jsx'
@@ -62,6 +63,7 @@ function App() {
 					<Route path='/questions' element={<QuestionsPage />} />
 					<Route path='/aboutvas' element={<AboutVasPage />} />
 					<Route path='/nalogi' element={<NalogiPage />} />
+					<Route path='/feedback' element={<FeedBackPage />} />
 
 					<Route path='/admincredit' element={<AdminCreditPage />} />
 					<Route path='/admincart' element={<AdminCartAndVkladPage />} />

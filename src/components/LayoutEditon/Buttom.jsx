@@ -31,11 +31,19 @@ export const Buttom = () => {
 								<li className='flex mb-[17px] text-[16px]'><FaTelegramPlane className='mr-2 mt-[1px]' size='20px' /><a href='https://web.telegram.org/#1200569226'>Телеграмм</a></li>
 								<li className='flex mb-[17px] text-[16px]'><FaOdnoklassniki className='mr-2 mt-[1px]' size='20px' /><a href='https://ok.ru/'>Однокласники</a></li>
 							</ul>
-							<ul className="text-Melody"> {/* Третья группа  */}
-								<li className='text-[26px] mb-[22px]'>Онлайн сервисы</li>
-								<li className='text-[16px] mb-[17px]'><NavLink to={'/questions'} >Написать в банк</NavLink></li>
-								<li className='text-[16px] mb-[17px]'>Заявки и калькулятор</li>
-								<li className=''>Мошеничество</li>
+							<ul className="text-Melody w-[40%]"> {/* Третья группа  */}
+								<div className="flex justify-between items-end px-[15px]">
+										<h1 className='text-[26px] mb-[22px]'>Наши отзывы</h1>
+										<NavLink className='text-[13px] mb-[22px]' to={'/feedback'}>написать отзыв</NavLink>
+									</div>
+								<div className=' bg-Jerry rounded-[20px] shadow-xxB px-[15px] py-[10px]'>
+									<div className="flex justify-between items-end">
+										<h1 className='text-[16px] font-medium mb-[5px] '>Сардак Андрей Андреевич</h1>
+										<h1 className='text-[13px] mb-[5px] '>5 июля</h1>
+									</div>
+									<div className="bg-Melody/50 p-[1px] " /> {/* Разделяющая линия */}
+									<li className='text-[13px] mt-[10px]'>Я впечатлен функциональностью и удобством сайта. еще..</li>
+								</div>
 							</ul>
 						</div>
 						<div className="flex justify-around mt-[50px]">
